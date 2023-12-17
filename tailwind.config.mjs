@@ -8,6 +8,11 @@ export default {
 				"proxima_nova_condensed": [ "proxima-nova-condensed", "sans-serif" ],
 
 			},
+			colors: {
+
+				"urbaninsight_orange": "#BF472D",
+
+			}
 		},
 	},
 	plugins: [],
