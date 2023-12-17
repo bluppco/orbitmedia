@@ -3,8 +3,8 @@ const { portfolio, data } = Astro.props
 import { CDN_LINK } from "../../constants/image"
 ---
 <section>
-    <h2 class="text-center">{ data.title }</h2>
-    <section class="grid grid-cols-8 gap-4">
+    <h2 class="text-center font-proxima_nova_condensed font-extrabold text-4xl">{ data.title }</h2>
+    <section class="grid grid-cols-8 gap-4 mt-10">
         {
 
             portfolio.map( ( item ) => {
