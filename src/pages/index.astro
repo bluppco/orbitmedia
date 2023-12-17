@@ -1,16 +1,37 @@
 ---
+import { endpointFetch } from "../functions/endpoint"
 
+const runtime = Astro.locals.runtime;
+const endpoint = endpointFetch( runtime.env.ENVIRONMENT )
+
+// NETWORK CALL TO GET DATA
+const network_data = await fetch( endpoint + "/home" )
+const data_json = await network_data.json()
+
+const { portfolio, meta_tags, data, team } = data_json.data
+
+// HOME PROPS
+let recent_projects = null
+let meet_our_team = null
+data.map( ( data ) => {
+
+	if( data.slug === "recent-projects" )
+		recent_projects = data
+	else if ( data.slug === "meet-our-team" )
+		meet_our_team = data
+
+})
+
+// IMPORT ASTRO COMPONENTS
+import Layout from "../layouts/Layout.astro"
+import RecentProjects from "../components/home/RecentProjects.astro"
+import MeetOurTeam from "../components/home/MeetOurTeam.astro"
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={ meta_tags.title }>
+	<section class="p-6 bg-zinc-100 m-6 py-20">
+		<RecentProjects portfolio={ portfolio } data={ recent_projects }/>
+	</section>
+	<section class="p-6 m-6 py-20">
+		<MeetOurTeam team={ team } data={ meet_our_team } />
+	</section>
+</Layout>
