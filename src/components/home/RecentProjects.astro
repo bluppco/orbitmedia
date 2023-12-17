@@ -1,0 +1,28 @@
+---
+const { portfolio, data } = Astro.props
+import { CDN_LINK } from "../../constants/image"
+---
+<section>
+    <h2 class="text-center">{ data.title }</h2>
+    <section class="grid grid-cols-8 gap-4">
+        {
+
+            portfolio.map( ( item ) => {
+
+                return (
+                    <a href={ "/portfolio/" + item.slug }>
+                        <div class="w-full aspect-square">
+                            <img
+                                src={ CDN_LINK + item.logo[0].file }
+                                class="w-full h-full object-contain"
+                                alt={ "portfolio" + item.name }
+                            />
+                        </div>
+                    </a>
+                )
+
+            })
+
+        }
+    </section>
+</section>
