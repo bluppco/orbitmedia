@@ -40,10 +40,6 @@ import Hero from "../components/home/Hero.astro"
 		<Header />
 		<Hero />
 	</section>
-	<section class="p-6 bg-zinc-100 m-6 py-20">
-		<RecentProjects portfolio={ portfolio } data={ recent_projects }/>
-	</section>
-	<section class="p-6 m-6 py-20">
-		<MeetOurTeam team={ team } data={ meet_our_team } />
-	</section>
+	<RecentProjects data={ recent_projects }/>
+	<MeetOurTeam team={ team } data={ meet_our_team } />
 </Layout>

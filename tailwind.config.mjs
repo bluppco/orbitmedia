@@ -13,6 +13,7 @@ export default {
 			colors: {
 
 				"om_orange": "#d85b41",
+				"om_zinc": "#f2f2f3"
 
 			}
 
