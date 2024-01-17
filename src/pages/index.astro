@@ -22,12 +22,20 @@ data.map( ( data ) => {
 
 })
 
-// IMPORT ASTRO COMPONENTS
+// IMPORTS ASTRO COMPONENTS
 import Layout from "../layouts/Layout.astro"
 import RecentProjects from "../components/home/RecentProjects.astro"
 import MeetOurTeam from "../components/home/MeetOurTeam.astro"
+import HeaderBanner from "../components/home/HeaderBanner.astro"
 ---
-<Layout title={ meta_tags.title }>
+<Layout
+	title={ meta_tags.title }
+	description={ meta_tags.description }
+	image={ meta_tags.cover }
+>
+	<section>
+		<HeaderBanner />
+	</section>
 	<section class="p-6 bg-zinc-100 m-6 py-20">
 		<RecentProjects portfolio={ portfolio } data={ recent_projects }/>
 	</section>
