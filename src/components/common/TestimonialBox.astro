@@ -1,0 +1,53 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "../../atoms/heading/two/Vanilla.astro"
+import Paragraph from "../../atoms/paragraph/Vanilla.astro"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+const {
+
+    title,
+    description,
+    src,
+    alt,
+    client_src,
+    client_alt,
+    client_name,
+    client_designation,
+    client_company
+
+} = Astro.props
+---
+<Container>
+    <section class="bg-om_zinc p-20 grid grid-cols-3 gap-40">
+        <div class="col-span-2 space-y-14">
+            <div class="space-y-6">
+                <HeadingTwo>{ title }</HeadingTwo>
+                <Paragraph>{ description }</Paragraph>
+            </div>
+            <div class="flex gap-4 items-center">
+                <div class="w-16 aspect-square bg-zinc-200 rounded-full overflow-hidden">
+                    <img
+                        src={ client_src }
+                        alt={ client_alt }
+                        class="w-full h-full"
+                    />
+                </div>
+                <div>
+                    <p class="font-bold text-lg font-proxima_nova">{ client_name }</p>
+                    <span class="text-lg font-proxima_nova">{ client_designation },</span>
+                    <span class="text-lg font-proxima_nova text-om_red">{ client_company }</span>
+                </div>
+            </div>
+        </div>
+        <div class="w-40 aspect-square bg-zinc-200">
+            <img
+                src={ src }
+                alt={ alt }
+                class="w-full h-full"
+            />
+        </div>
+    </section>
+</Container>
