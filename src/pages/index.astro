@@ -29,6 +29,7 @@ import MeetOurTeam from "../components/home/MeetOurTeam.astro"
 import HeaderBanner from "../components/home/HeaderBanner.astro"
 import Header from "../components/common/header/Header.astro"
 import Hero from "../components/home/Hero.astro"
+import CofounderTalk from "../components/home/CofounderTalk.astro"
 ---
 <Layout
 	title={ meta_tags.title }
@@ -41,5 +42,6 @@ import Hero from "../components/home/Hero.astro"
 		<Hero />
 	</section>
 	<RecentProjects data={ recent_projects }/>
+	<CofounderTalk />
 	<MeetOurTeam team={ team } data={ meet_our_team } />
 </Layout>
