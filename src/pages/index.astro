@@ -34,7 +34,8 @@ import PartnerWithUs from "../components/home/PartnerWithUs.astro"
 import Reviews from "../components/home/Reviews.astro"
 import Awards from "../components/home/Awards.astro"
 import STIFounderTestimonial from "../components/home/STIFounderTestimonial.astro"
-import ViennaBeefTestimonial from "../components/home/ViennaBeefTestimonial.astro";
+import ViennaBeefTestimonial from "../components/home/ViennaBeefTestimonial.astro"
+import OptimizeWebsite from "../components/home/OptimizeWebsite.astro"
 ---
 <Layout
 	title={ meta_tags.title }
@@ -56,4 +57,7 @@ import ViennaBeefTestimonial from "../components/home/ViennaBeefTestimonial.astr
 	</section>
 	<MeetOurTeam team={ team } data={ meet_our_team } />
 	<ViennaBeefTestimonial />
+	<section class="flex flex-col gap-32 py-32 bg-om_zinc">
+		<OptimizeWebsite />
+	</section>
 </Layout>
