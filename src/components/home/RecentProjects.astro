@@ -10,29 +10,27 @@ import { CDN_LINK } from "../../constants/image"
 import HeadingTwoCenter from "../../atoms/heading/two/Center.astro"
 import Container from "../../layouts/Container.astro"
 ---
-<section class="py-20 bg-om_zinc">
-    <Container>
-        <HeadingTwoCenter>{ data.title }</HeadingTwoCenter>
-        <section class="grid grid-cols-8 gap-10 mt-10">
-            {
+<Container>
+    <HeadingTwoCenter>{ data.title }</HeadingTwoCenter>
+    <section class="grid grid-cols-8 gap-10 mt-10">
+        {
 
-                images.map( ( item ) => {
+            images.map( ( item ) => {
 
-                    return (
-                        <a href={ "/portfolio/" + item.slug }>
-                            <div class="w-full aspect-square">
-                                <img
-                                    src={ CDN_LINK + item.file }
-                                    class="w-full h-full object-contain"
-                                    alt={ "portfolio" + item.name }
-                                />
-                            </div>
-                        </a>
-                    )
+                return (
+                    <a href={ "/portfolio/" + item.slug }>
+                        <div class="w-full aspect-square">
+                            <img
+                                src={ CDN_LINK + item.file }
+                                class="w-full h-full object-contain"
+                                alt={ "portfolio" + item.name }
+                            />
+                        </div>
+                    </a>
+                )
 
-                })
+            })
 
-            }
-        </section>
-    </Container>
-</section>
+        }
+    </section>
+</Container>

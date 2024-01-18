@@ -1,0 +1,15 @@
+---
+const { href } = Astro.props
+---
+<a href={ href } class="flex gap-1 items-center">
+    <p class="text-om_red hover:text-black font-proxima_nova_condensed font-extrabold text-xl">
+        <slot/>
+    </p>
+    <div class="w-4 aspect-square">
+        <img
+            src="/icons/greater-than.svg"
+            alt=""
+            class="w-4 aspect-square"
+        />
+    </div>
+</a>

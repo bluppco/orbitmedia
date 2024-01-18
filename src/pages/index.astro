@@ -30,6 +30,7 @@ import HeaderBanner from "../components/home/HeaderBanner.astro"
 import Header from "../components/common/header/Header.astro"
 import Hero from "../components/home/Hero.astro"
 import CofounderTalk from "../components/home/CofounderTalk.astro"
+import PartnerWithUs from "../components/home/PartnerWithUs.astro"
 ---
 <Layout
 	title={ meta_tags.title }
@@ -41,7 +42,10 @@ import CofounderTalk from "../components/home/CofounderTalk.astro"
 		<Header />
 		<Hero />
 	</section>
-	<RecentProjects data={ recent_projects }/>
-	<CofounderTalk />
-	<MeetOurTeam team={ team } data={ meet_our_team } />
+	<section class="flex flex-col gap-32 py-32 bg-om_zinc">
+		<RecentProjects data={ recent_projects }/>
+		<CofounderTalk />
+		<PartnerWithUs />
+		<MeetOurTeam team={ team } data={ meet_our_team } />
+	</section>
 </Layout>
