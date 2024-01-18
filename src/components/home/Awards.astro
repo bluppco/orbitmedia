@@ -1,0 +1,32 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+const data = Array(5).fill({
+
+    file: "/clutch-global.png",
+    alt: ""
+
+})
+---
+<Container>
+    <section class="grid grid-cols-3 gap-20">
+        {
+
+            data.map( ( value ) => {
+
+                return(
+                    <div class="w-full aspect-video">
+                        <img
+                            src={ value.file }
+                            alt={ value.alt }
+                            class="w-full h-full object-contain"
+                        />
+                    </div>
+                )
+
+            })
+
+        }
+    </section>
+</Container>
