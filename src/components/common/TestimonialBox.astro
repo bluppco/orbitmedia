@@ -16,12 +16,13 @@ const {
     client_alt,
     client_name,
     client_designation,
-    client_company
+    client_company,
+    background_zinc
 
 } = Astro.props
 ---
 <Container>
-    <section class="bg-om_zinc p-20 grid grid-cols-3 gap-40">
+    <section class={` ${ background_zinc ? "bg-om_zinc" : "bg-white" } p-20 grid grid-cols-3 gap-40 `}>
         <div class="col-span-2 space-y-14">
             <div class="space-y-6">
                 <HeadingTwo>{ title }</HeadingTwo>
