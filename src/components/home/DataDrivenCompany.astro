@@ -1,0 +1,51 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "../../atoms/heading/two/Vanilla.astro"
+import Paragraph from "../../atoms/paragraph/Vanilla.astro"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import DataCard from "./DataCard.astro"
+
+const data = Array(3).fill({
+
+    cover: "/data.svg",
+    title: "Data and Analytics",
+    description: "Find performing pages, migrate, and preserve."
+
+})
+---
+<Container>
+    <section class="grid grid-cols-2 gap-20">
+        <div class="space-y-8">
+            {
+
+                data.map( ( value ) => {
+
+                    return(
+                        <DataCard
+                            title={ value.title }
+                            description={ value.description }
+                            src={ value.cover }
+                            alt={ value.title }
+                        />
+                    )
+
+                })
+
+            }
+        </div>
+        <div class="flex flex-col justify-center gap-6">
+            <HeadingTwo>A data-driven web design and development company</HeadingTwo>
+            <div class="space-y-1">
+                <div class="h-[2px] w-14 bg-om_red"></div>
+                <div class="h-[2px] w-14 bg-om_red"></div>
+            </div>
+            <p class="text-2xl font-bold font-proxima_nova">A better website starts with research.</p>
+            <p class="text-2xl font-proxima_nova">Curiosity is our starting point. We then launch into a thorough qualitative and quantitative investigation.</p>
+            <Paragraph>Our websites are built to rank. We perform keyword research, review analytics, use heat maps and eye-tracking technology. We identify current keyword rankings and capture new SEO opportunities for your brand.</Paragraph>
+        </div>
+</section>
+</Container>
