@@ -1,0 +1,29 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingWhite from "../../atoms/heading/two/White.astro"
+import ParagraphLargeWhite from "../../atoms/paragraph/LargeWhite.astro"
+import BlackArrowButton from "../../atoms/button/BlackArrow.astro"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+---
+<section class="bg-om_red py-32">
+    <Container>
+        <section class="grid grid-cols-3 gap-10">
+            <section class="col-span-2 space-y-6">
+                <HeadingWhite>What digital marketing services are right for you?</HeadingWhite>
+                <ParagraphLargeWhite>At the end of the day we want to make the internet a better place with websites that inform and convert. It’s our mission. We want you to love your website again.</ParagraphLargeWhite>
+            </section>
+            <section class="flex items-center justify-end">
+                <div class="w-24 aspect-square bg-zinc-200 rounded-full overflow-hidden">
+                    <img
+                        src=""
+                        alt=""
+                        class="w-full h-full"
+                    />
+                </div>
+                <BlackArrowButton>Reach out to Chris</BlackArrowButton>
+            </section>
+        </section>
+    </Container>
+</section>
