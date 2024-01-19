@@ -8,12 +8,12 @@ const endpoint = endpointFetch( runtime.env.ENVIRONMENT )
 const network_data = await fetch( endpoint + "/home" )
 const data_json = await network_data.json()
 
-const { portfolio, meta_tags, data, team } = data_json.data
+const { portfolio, meta_tags, home, team } = data_json.data
 
 // HOME PROPS
 let recent_projects = null
 let meet_our_team = null
-data.map( ( data ) => {
+home.map( ( data ) => {
 
 	if( data.slug === "recent-projects" )
 		recent_projects = data
