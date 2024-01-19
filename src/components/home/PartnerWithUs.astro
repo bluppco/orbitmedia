@@ -1,4 +1,6 @@
 ---
+import { marked } from "marked"
+
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
 
@@ -11,6 +13,8 @@ import CTALink from "../../atoms/CTALink.astro"
 import Container from "../../layouts/Container.astro"
 
 const { data } = Astro.props
+
+const html = marked.parse( data.description )
 ---
 <Container>
     <div class="grid grid-cols-5 gap-20">
@@ -29,7 +33,7 @@ const { data } = Astro.props
                 <div class="h-[2px] w-14 bg-om_red"></div>
                 <div class="h-[2px] w-14 bg-om_red"></div>
             </div>
-            <Paragraph>{ data.description }</Paragraph>
+            <section set:html={ html } class="markdown" />
             <CTALink>{ data.button_text }</CTALink>
         </div>
     </div>

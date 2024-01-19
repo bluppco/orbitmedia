@@ -14,7 +14,8 @@ export default {
 
 				"om_orange": "#d85b41",
 				"om_zinc": "#f2f2f3",
-				"om_red": "#bf472d"
+				"om_red": "#bf472d",
+				"om_black": "#1a1a1a"
 
 			}
 
