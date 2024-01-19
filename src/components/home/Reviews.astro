@@ -21,12 +21,14 @@ const images = data.images.sort(( a,b ) => a.order -b.order )
                 images.map( ( value ) => {
 
                     return(
-                        <div class="w-full aspect-video">
-                            <img
-                                src={ CDN_LINK + value.file + "?quality=" + IMAGE_QUALITY }
-                                alt=""
-                                class="w-full h-full object-contain"
-                            />
+                        <div class="bg-white p-16">
+                            <div class="w-full aspect-[3/1]">
+                                <img
+                                    src={ CDN_LINK + value.file + "?quality=" + IMAGE_QUALITY }
+                                    alt=""
+                                    class="w-full h-full object-contain"
+                                />
+                            </div>
                         </div>
                     )
 

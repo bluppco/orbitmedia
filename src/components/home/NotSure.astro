@@ -14,7 +14,7 @@ const { data } = Astro.props
 <Container>
     <div class="grid grid-cols-5 gap-20 py-32">
         <div class="col-span-3 flex items-center">
-            <div class="w-full aspect-[3/2]">
+            <div class="w-full aspect-square">
                 <img
                     src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
                     alt={ data.title }

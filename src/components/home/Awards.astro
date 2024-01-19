@@ -10,7 +10,7 @@ const { data } = Astro.props
 const images = data.images.sort(( a,b ) => a.order -b.order )
 ---
 <Container>
-    <section class="grid grid-cols-3 gap-20">
+    <section class="grid grid-cols-3 gap-10">
         {
 
             images.map( ( value ) => {
