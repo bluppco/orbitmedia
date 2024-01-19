@@ -5,22 +5,27 @@ import Container from "../../layouts/Container.astro"
 // IMPORTS ASTRO ATOMS
 import HeadingOneWhite from "../../atoms/heading/one/White.astro"
 import OrangeArrowButton from "../../atoms/button/OrangeArrow.astro"
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
+const { data } = Astro.props
 ---
 <section class="bg-black h-full">
     <Container>
         <section class="grid grid-cols-2 gap-4 py-20">
             <section class="space-y-2">
-                <p class="text-white text-xl font-semibold font-proxima_nova_condensed">Web design, development, & optimization</p>
+                <p class="text-white text-xl font-semibold font-proxima_nova_condensed">{ data.heading }</p>
                 <div class="space-y-8">
-                    <HeadingOneWhite>Award-winning digital marketing and web design agency</HeadingOneWhite>
-                    <p class="text-white text-2xl font-light font-proxima_nova">Get a website that works for you. Our digital marketing agency will design a site that is easy to update, drives conversions and captures your unique story.</p>
-                    <OrangeArrowButton href="" aria_label="">Show me the web design portfolio</OrangeArrowButton>
+                    <HeadingOneWhite>{ data.title }</HeadingOneWhite>
+                    <p class="text-white text-2xl font-light font-proxima_nova">{ data.description }</p>
+                    <OrangeArrowButton href="" aria_label="">{ data.button_text }</OrangeArrowButton>
                 </div>
             </section>
             <section>
                 <div class="w-full h-[500px]">
                     <img
-                        src="/hero-image.svg"
+                        src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
                         alt=""
                         class="w-full h-[500px]"
                     />

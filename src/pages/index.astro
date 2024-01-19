@@ -1,26 +1,10 @@
 ---
-import { endpointFetch } from "../functions/endpoint"
+import { homeAPI } from "../api/home/index"
 
 const runtime = Astro.locals.runtime;
-const endpoint = endpointFetch( runtime.env.ENVIRONMENT )
+const data = await homeAPI( runtime.env.ENVIRONMENT )
 
-// NETWORK CALL TO GET DATA
-const network_data = await fetch( endpoint + "/home" )
-const data_json = await network_data.json()
-
-const { portfolio, meta_tags, home, team } = data_json.data
-
-// HOME PROPS
-let recent_projects = null
-let meet_our_team = null
-home.map( ( data ) => {
-
-	if( data.slug === "recent-projects" )
-		recent_projects = data
-	else if ( data.slug === "meet-our-team" )
-		meet_our_team = data
-
-})
+const { home_data, team, testimonials, meta_tags } = data
 
 // IMPORTS ASTRO COMPONENTS
 import Layout from "../layouts/Layout.astro"
@@ -53,29 +37,34 @@ import ReachOutToChris from "../components/home/ReachOutToChris.astro"
 	<section class="md:h-screen md:max-h-screen">
 		<HeaderBanner />
 		<Header />
-		<Hero />
+		<Hero data={ home_data.hero } />
 	</section>
 	<section class="flex flex-col gap-32 py-32 bg-om_zinc">
-		<RecentProjects data={ recent_projects }/>
-		<CofounderTalk />
-		<PartnerWithUs />
-		<Reviews />
-		<Awards />
-		<STIFounderTestimonial />
+		<RecentProjects data={ home_data.recent_projects }/>
+		<CofounderTalk data={ home_data.cofounder_talk } />
+		<PartnerWithUs data={ home_data.partner_with_us } />
+		<Reviews data={ home_data.reviews } />
+		<Awards data={ home_data.awards } />
+		<STIFounderTestimonial data={ home_data.founder_of_sti } />
 	</section>
-	<MeetOurTeam team={ team } data={ meet_our_team } />
-	<ViennaBeefTestimonial />
+	<MeetOurTeam team={ team } data={ home_data.meet_our_team } />
+	<ViennaBeefTestimonial data={ testimonials } />
 	<section class="flex flex-col gap-32 py-32 bg-om_zinc">
-		<OptimizeWebsite />
-		<DataDrivenCompany />
-		<SgoTestimonials />
+		<OptimizeWebsite data={ home_data.optimize_website } />
+		<DataDrivenCompany
+			data={ home_data.data_driven_company }
+			data_and_analytics={ home_data.data_and_analytics }
+			keyword_research={ home_data.keyword_research }
+			interview_and_investigate={ home_data.interview_and_investigate }
+		/>
+		<SgoTestimonials data={ testimonials } />
 	</section>
-	<UpdateMessaging />
-	<EditAnyPage />
+	<UpdateMessaging data={ home_data.update_messaging } />
+	<EditAnyPage data={ home_data.edit_any_page } />
 	<section class="flex flex-col gap-32 py-32 bg-om_zinc">
-		<WebsiteDesign />
-		<NotSure />
-		<TRLSTestimonial />
+		<WebsiteDesign data={ home_data.website_design } />
+		<NotSure data={ home_data.not_sure } />
+		<TRLSTestimonial data={ testimonials } />
 	</section>
-	<ReachOutToChris />
+	<ReachOutToChris data={ home_data.reach_out_to_chris } />
 </Layout>

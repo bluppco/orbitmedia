@@ -3,6 +3,9 @@
 import HeadingTwo from "../../atoms/heading/two/Vanilla.astro"
 import Paragraph from "../../atoms/paragraph/Vanilla.astro"
 
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
 // IMPORTS ASTRO LAYOUTS
 import Container from "../../layouts/Container.astro"
 
@@ -29,13 +32,26 @@ const {
                 <Paragraph>{ description }</Paragraph>
             </div>
             <div class="flex gap-4 items-center">
-                <div class="w-16 aspect-square bg-zinc-200 rounded-full overflow-hidden">
-                    <img
-                        src={ client_src }
-                        alt={ client_alt }
-                        class="w-full h-full"
-                    />
-                </div>
+                {
+
+                    client_src.map( ( value, index ) => {
+
+                        if (index < 1) {
+
+                        return(
+                        <div class="w-16 aspect-square rounded-full overflow-hidden">
+                            <img
+                                src={ CDN_LINK + value.file + "?quality=" + IMAGE_QUALITY }
+                                alt={ client_alt }
+                                class="w-full h-full"
+                            />
+                        </div>
+                        )
+                    }
+
+                    })
+
+                }
                 <div>
                     <p class="font-bold text-lg font-proxima_nova">{ client_name }</p>
                     <span class="text-lg font-proxima_nova">{ client_designation },</span>
@@ -45,9 +61,9 @@ const {
         </div>
         <div class="w-40 aspect-square bg-zinc-200">
             <img
-                src={ src }
+                src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
                 alt={ alt }
-                class="w-full h-full"
+                class="w-full h-full object-cover"
             />
         </div>
     </section>

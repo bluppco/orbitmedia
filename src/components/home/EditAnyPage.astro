@@ -8,26 +8,28 @@ import Paragraph from "../../atoms/paragraph/Vanilla.astro"
 
 // IMPORTS ASTRO LAYOUTS
 import Container from "../../layouts/Container.astro"
+
+const { data } = Astro.props
 ---
 <Container>
     <div class="grid grid-cols-5 gap-20 py-32">
         <div class="col-span-3 flex items-center">
-            <div class="w-full aspect-[3/2] bg-zinc-200">
+            <div class="w-full aspect-[3/2]">
                 <img
-                    src=""
-                    alt=""
+                    src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
+                    alt={ data.title }
                     class="w-full h-full"
                 />
             </div>
         </div>
         <div class="flex flex-col justify-center gap-6 col-span-2">
-            <HeadingTwo>Edit any page in seconds</HeadingTwo>
+            <HeadingTwo>{ data.title }</HeadingTwo>
             <div class="space-y-1">
                 <div class="h-[2px] w-14 bg-om_red"></div>
                 <div class="h-[2px] w-14 bg-om_red"></div>
             </div>
-            <p class="font-proxima_nova text-2xl font-bold">Website updates should be super simple.</p>
-            <Paragraph>Your new website will be developed specifically for your content and preferred processes. It will be easy for you on the backend and easy for your visitors on the frontend.</Paragraph>
+            <p class="font-proxima_nova text-2xl font-bold">{ data.sub_title }</p>
+            <Paragraph>{ data.description }</Paragraph>
         </div>
     </div>
 </Container>

@@ -4,15 +4,17 @@ import Container from "../../layouts/Container.astro"
 
 // IMPORT ASTRO COMPONENTS
 import TextVideoGrid from "../common/TextVideoGrid.astro"
+
+const { data } = Astro.props
 ---
 <Container>
     <section>
         <TextVideoGrid
-            heading="Andy Crestodina, Cofounder, Orbit Media"
-            title="Digital marketing is a test of empathy"
-            description="Andy gives a quick walk-through of how we use data-driven empathy to create a website you and your visitors love."
-            src="/cmo.avif"
-            video_text="Hear me out, it won’t take long! "
+            heading={ data.heading }
+            title={ data.title }
+            description={ data.description }
+            src={ data.cover }
+            video_text={ data.video_text }
         />
     </section>
 </Container>

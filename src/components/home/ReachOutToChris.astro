@@ -1,4 +1,7 @@
 ---
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
 // IMPORTS ASTRO ATOMS
 import HeadingWhite from "../../atoms/heading/two/White.astro"
 import ParagraphLargeWhite from "../../atoms/paragraph/LargeWhite.astro"
@@ -6,23 +9,25 @@ import BlackArrowButton from "../../atoms/button/BlackArrow.astro"
 
 // IMPORTS ASTRO LAYOUTS
 import Container from "../../layouts/Container.astro"
+
+const { data } = Astro.props
 ---
 <section class="bg-om_red py-32">
     <Container>
         <section class="grid grid-cols-3 gap-10">
             <section class="col-span-2 space-y-6">
-                <HeadingWhite>What digital marketing services are right for you?</HeadingWhite>
-                <ParagraphLargeWhite>At the end of the day we want to make the internet a better place with websites that inform and convert. It’s our mission. We want you to love your website again.</ParagraphLargeWhite>
+                <HeadingWhite>{ data.title }</HeadingWhite>
+                <ParagraphLargeWhite>{ data.description }</ParagraphLargeWhite>
             </section>
             <section class="flex items-center justify-end">
                 <div class="w-24 aspect-square bg-zinc-200 rounded-full overflow-hidden">
                     <img
-                        src=""
+                        src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
                         alt=""
                         class="w-full h-full"
                     />
                 </div>
-                <BlackArrowButton>Reach out to Chris</BlackArrowButton>
+                <BlackArrowButton>{ data.button_text }</BlackArrowButton>
             </section>
         </section>
     </Container>

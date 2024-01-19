@@ -4,15 +4,17 @@ import Container from "../../layouts/Container.astro"
 
 // IMPORT ASTRO COMPONENTS
 import OptimizeWebsiteItem from "./OptimizeWebsiteItem.astro"
+
+const { data } = Astro.props
 ---
 <Container>
     <section class="pt-32">
         <OptimizeWebsiteItem
-            title="Update your messaging with powerful storytelling"
-            sub_title="Is your messaging out of date? Your website is an extension of your brand. It should reflect how you see yourself today."
-            description="Website design and content go hand-in-hand to tell your story. With insights gathered during our discovery, we craft content that captures your message, voice, and tone. Then we work with you to develop a beautiful website, a digital version of your brand."
-            src="/cmo.avif"
-            alt=""
+            title={ data.title }
+            sub_title={ data.sub_title }
+            description={ data.description }
+            src={ data.cover }
+            alt={ data.title }
         />
     </section>
 </Container>

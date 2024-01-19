@@ -4,15 +4,17 @@ import Container from "../../layouts/Container.astro"
 
 // IMPORT ASTRO COMPONENTS
 import TextVideoGrid from "../common/TextVideoGrid.astro"
+
+const { data } = Astro.props
 ---
 <Container>
     <section>
         <TextVideoGrid
-            heading="Diane Yetter, Founder of Sales Tax Institute"
-            title="What it’s like working with the Orbit team"
-            description="We have a very data-intensive website. We were looking for better ways to make the information and resources that we offer to our users much more accessible."
-            src="/cmo.avif"
-            video_text="“They have a great process and great team members.”"
+            heading={ data.heading }
+            title={ data.title }
+            description={ data.description }
+            src={ data.cover }
+            video_text={ data.video_text }
             italic_text={ true }
         />
     </section>

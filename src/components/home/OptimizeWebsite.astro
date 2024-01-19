@@ -4,13 +4,15 @@ import Container from "../../layouts/Container.astro"
 
 // IMPORT ASTRO COMPONENTS
 import OptimizeWebsiteItem from "./OptimizeWebsiteItem.astro"
+
+const { data } = Astro.props
 ---
 <Container>
     <OptimizeWebsiteItem
-        title="Optimize your website for higher conversions"
-        sub_title="Friction kills leads. Our SEO and CRO strategy enhance your website to improve leads and increase conversions."
-        description="Drive demand and increase leads with a website aligned to visitor psychology. If things are hard to find or your site is hard to navigate, people leave. Help visitors find what they want and what you want them to see. A conversion-oriented approach includes:"
-        src="/cmo.avif"
-        alt=""
+        title={ data.heading }
+        sub_title={ data.title }
+        description={ data.description }
+        src={ data.cover }
+        alt={ data.heading }
     />
 </Container>

@@ -1,18 +1,33 @@
 ---
 // IMPORTS ASTRO COMPONENTS
 import TestimonialBox from "../common/TestimonialBox.astro"
+
+const { data } = Astro.props
 ---
 <section class="pb-32">
-    <TestimonialBox
-        title="Website traffic tripled!"
-        description="We more than tripled site traffic after our website redesign and we’ve been partnering with those web nerds ever since. Shopping cart abandonment is down, sales are up. HOT DOG!"
-        src=""
-        alt=""
-        client_src=""
-        client_alt=""
-        client_name="Carrie Bodman"
-        client_designation="Director of Marketing"
-        client_company="Vienna Beef"
-        background_zinc={ true }
-    />
+    {
+
+        data.map( ( value, index ) => {
+
+            if (index < 1) {
+
+            return(
+                <TestimonialBox
+                    title={ value.title }
+                    description={ value.description }
+                    src={ value.cover }
+                    alt={ value.title }
+                    client_src={ value.client_headshot }
+                    client_alt={ value.client_name }
+                    client_name={ value.client_name }
+                    client_designation={ value.client_designation }
+                    client_company={ value.client_company }
+                    background_zinc={ true }
+                />
+            )
+        }
+
+        })
+
+    }
 </section>

@@ -2,29 +2,29 @@
 // IMPORTS ASTRO ATOMS
 import HeadingCenter from "../../atoms/HeadingCenter.astro"
 
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
 // IMPORTS ASTRO LAYOUTS
 import Container from "../../layouts/Container.astro"
 
-const data = Array(3).fill({
+const { data } = Astro.props
 
-    file: "/reviews-google.jpg",
-    alt: ""
-
-})
+const images = data.images.sort(( a,b ) => a.order -b.order )
 ---
 <Container>
     <section class="space-y-10">
-        <HeadingCenter>We’re focused on creating exceptional work for clients</HeadingCenter>
+        <HeadingCenter>{ data.title }</HeadingCenter>
         <div class="grid grid-cols-3 gap-12">
             {
 
-                data.map( ( value ) => {
+                images.map( ( value ) => {
 
                     return(
                         <div class="w-full aspect-video">
                             <img
-                                src={ value.file }
-                                alt={ value.alt }
+                                src={ CDN_LINK + value.file + "?quality=" + IMAGE_QUALITY }
+                                alt=""
                                 class="w-full h-full object-contain"
                             />
                         </div>
