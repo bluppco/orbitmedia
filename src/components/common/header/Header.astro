@@ -1,0 +1,33 @@
+---
+const runtime = Astro.locals.runtime
+const env = runtime.env.ENVIRONMENT
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../../layouts/Container.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import HeaderItem from "./HeaderItem.astro"
+---
+<header class={`${ env === "staging" ? "mt-0" : "" } bg-om_black relative z-20 h-20`}>
+    <Container>
+        <section class="flex justify-between items-center h-full">
+            <div class="w-60 aspect[3/1]">
+                <img
+                    src="/logo/om-logo.png"
+                    alt=""
+                    class="w-full h-full"
+                />
+            </div>
+            <nav>
+                <ul class="flex gap-10 items-center">
+                    <HeaderItem href="">Web Design & Development</HeaderItem>
+                    <HeaderItem href="">Website Optimization</HeaderItem>
+                    <HeaderItem href="">Portfolio</HeaderItem>
+                    <HeaderItem href="">Blog</HeaderItem>
+                    <HeaderItem href="">About</HeaderItem>
+                    <HeaderItem href="">Contact</HeaderItem>
+                </ul>
+            </nav>
+        </section>
+    </Container>
+</header>

@@ -1,0 +1,19 @@
+---
+const { href, aria_label } = Astro.props
+---
+<div>
+    <a href={ href } aria-label={ aria_label }>
+        <button class="bg-om_orange h-14 px-6 rounded flex gap-2 items-center">
+            <p class="text-white text-xl font-proxima_nova_condensed font-bold">
+                <slot/>
+            </p>
+            <div class="w-4 aspect-square">
+                <img
+                    src="/icons/arrow.svg"
+                    alt=""
+                    class="w-4 aspect-square"
+                />
+            </div>
+        </button>
+    </a>
+</div>

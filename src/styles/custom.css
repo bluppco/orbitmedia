@@ -1,0 +1,20 @@
+.markdown p {
+
+    @apply text-lg font-light leading-normal py-2 !important ;
+
+}
+.markdown a {
+
+    @apply text-om_red font-semibold !important ;
+
+}
+.markdown li {
+
+    @apply list-disc pl-2 py-2 font-light !important ;
+
+}
+.markdown ul {
+
+    @apply pl-4 !important ;
+
+}

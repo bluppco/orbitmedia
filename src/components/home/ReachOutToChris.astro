@@ -1,0 +1,36 @@
+---
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
+// IMPORTS ASTRO ATOMS
+import HeadingWhite from "../../atoms/heading/two/White.astro"
+import ParagraphLargeWhite from "../../atoms/paragraph/LargeWhite.astro"
+import BlackOrangeArrowButton from "../../atoms/button/BlackOrangeArrow.astro"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+const { data } = Astro.props
+---
+<section class="bg-om_red py-32">
+    <Container>
+        <section class="grid grid-cols-3 gap-10">
+            <section class="col-span-2 space-y-6">
+                <HeadingWhite>{ data.title }</HeadingWhite>
+                <ParagraphLargeWhite>{ data.description }</ParagraphLargeWhite>
+            </section>
+            <section class="flex items-center justify-end">
+                <div class="relative">
+                    <div class="w-28 aspect-square bg-zinc-200 rounded-full overflow-hidden absolute -top-4 -left-24">
+                        <img
+                            src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
+                            alt=""
+                            class="w-full h-full"
+                        />
+                    </div>
+                    <BlackOrangeArrowButton>{ data.button_text }</BlackOrangeArrowButton>
+                </div>
+            </section>
+        </section>
+    </Container>
+</section>

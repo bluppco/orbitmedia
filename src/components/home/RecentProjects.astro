@@ -1,19 +1,27 @@
 ---
-const { portfolio, data } = Astro.props
-import { CDN_LINK } from "../../constants/image"
+const { data } = Astro.props
+
+const images = data.images.sort( ( a,b ) => a.order - b.order )
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwoCenter from "../../atoms/heading/two/Center.astro"
+import Container from "../../layouts/Container.astro"
 ---
-<section>
-    <h2 class="text-center font-proxima_nova_condensed font-extrabold text-4xl">{ data.title }</h2>
-    <section class="grid grid-cols-8 gap-4 mt-10">
+<Container>
+    <HeadingTwoCenter>{ data.title }</HeadingTwoCenter>
+    <section class="grid grid-cols-8 gap-x-10 gap-y-2">
         {
 
-            portfolio.map( ( item ) => {
+            images.map( ( item ) => {
 
                 return (
                     <a href={ "/portfolio/" + item.slug }>
                         <div class="w-full aspect-square">
                             <img
-                                src={ CDN_LINK + item.logo[0].file }
+                                src={ CDN_LINK + item.file + "?quality=" + IMAGE_QUALITY }
                                 class="w-full h-full object-contain"
                                 alt={ "portfolio" + item.name }
                             />
@@ -25,4 +33,4 @@ import { CDN_LINK } from "../../constants/image"
 
         }
     </section>
-</section>
+</Container>
