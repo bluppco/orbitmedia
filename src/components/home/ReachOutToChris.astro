@@ -25,7 +25,7 @@ const { data } = Astro.props
                         <img
                             src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
                             alt=""
-                            class="w-full h-full"
+                            class="w-full h-full object-cover"
                         />
                     </div>
                     <BlackOrangeArrowButton>{ data.button_text }</BlackOrangeArrowButton>
