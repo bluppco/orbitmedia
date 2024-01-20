@@ -9,7 +9,6 @@ export default {
 				"proxima_nova_condensed": [ "proxima-nova-condensed", "sans-serif" ],
 
 			},
-
 			colors: {
 
 				"om_orange": "#d85b41",
@@ -18,7 +17,6 @@ export default {
 				"om_black": "#1a1a1a"
 
 			}
-
 		},
 	},
 	plugins: [],
