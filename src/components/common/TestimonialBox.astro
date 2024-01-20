@@ -1,0 +1,86 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingTwoSmall from "../../atoms/heading/two/Small.astro"
+import Paragraph from "../../atoms/paragraph/Vanilla.astro"
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+const {
+
+    title,
+    description,
+    src,
+    alt,
+    client_src,
+    client_alt,
+    client_name,
+    client_designation,
+    client_company,
+    background_zinc
+
+} = Astro.props
+---
+<Container>
+    <section class={` ${ background_zinc ? "bg-om_zinc" : "bg-white" } p-20 grid grid-cols-3 gap-40 `}>
+        <div class="col-span-2 space-y-14 relative">
+            <div class="space-y-6">
+                <HeadingTwoSmall>{ title }</HeadingTwoSmall>
+                <Paragraph>{ description }</Paragraph>
+            </div>
+            <div class="flex gap-4 items-center">
+                {
+
+                    client_src.map( ( value, index ) => {
+
+                        if (index < 1) {
+
+                        return(
+                        <div class="w-16 aspect-square rounded-full overflow-hidden">
+                            <img
+                                src={ CDN_LINK + value.file + "?quality=" + IMAGE_QUALITY }
+                                alt={ client_alt }
+                                class="w-full h-full"
+                            />
+                        </div>
+                        )
+                    }
+
+                    })
+
+                }
+                <div>
+                    <p class="font-bold text-lg font-proxima_nova">{ client_name }</p>
+                    <div class="flex items-center gap-1">
+                        <span class="text-lg font-proxima_nova">{ client_designation },</span>
+                        <span class="text-lg font-proxima_nova text-om_red hover:cursor-pointer">{ client_company }</span>
+                        <div class="w-4 aspect-square">
+                            <img
+                                src="/icons/arrow-top-right.svg"
+                                alt=""
+                                class="w-4 aspect-square"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-16 aspect-auto absolute -left-16 -top-20">
+                <img
+                    src="/images/quote.png"
+                    alt=""
+                    class="w-full h-full"
+                />
+            </div>
+        </div>
+        <div class="w-40 aspect-square">
+            <img
+                src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
+                alt={ alt }
+                class="w-full h-full object-cover"
+            />
+        </div>
+    </section>
+</Container>

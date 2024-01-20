@@ -3,6 +3,7 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+
 			fontFamily: {
 
 				"proxima_nova_condensed": [ "proxima-nova-condensed", "sans-serif" ],
@@ -10,7 +11,10 @@ export default {
 			},
 			colors: {
 
-				"urbaninsight_orange": "#BF472D",
+				"om_orange": "#d85b41",
+				"om_zinc": "#f2f2f3",
+				"om_red": "#bf472d",
+				"om_black": "#1a1a1a"
 
 			}
 		},
