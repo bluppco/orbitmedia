@@ -56,14 +56,27 @@ const {
                     <p class="font-bold text-lg font-proxima_nova">{ client_name }</p>
                     <div class="flex items-center gap-1">
                         <span class="text-lg font-proxima_nova">{ client_designation },</span>
-                        <span class="text-lg font-proxima_nova text-om_red hover:cursor-pointer">{ client_company }</span>
-                        <div class="w-4 aspect-square">
-                            <img
-                                src="/icons/arrow-top-right.svg"
-                                alt=""
-                                class="w-4 aspect-square"
-                            />
-                        </div>
+                        {
+
+                            client_company === "Vienna Beef" ?
+
+                            <span class="text-lg font-proxima_nova text-om_red hover:cursor-pointer">{ client_company }</span>
+                            :
+                            <span class="text-lg font-proxima_nova hover:cursor-pointer">{ client_company }</span>
+
+                        }
+                        {
+
+                            client_company === "Vienna Beef" &&
+
+                            <div class="w-4 aspect-square">
+                                <img
+                                    src="/icons/arrow-top-right.svg"
+                                    alt=""
+                                    class="w-4 aspect-square"
+                                />
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
