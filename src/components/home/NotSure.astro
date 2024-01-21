@@ -13,6 +13,7 @@ import Container from "../../layouts/Container.astro"
 const { data } = Astro.props
 
 const description = marked.parse( data.description )
+const sub_title = marked.parse( data.sub_title )
 ---
 <Container>
     <div class="grid grid-cols-1 md:grid-cols-5 gap-20 py-32">
@@ -31,7 +32,7 @@ const description = marked.parse( data.description )
                 <div class="h-[2px] w-14 bg-om_red"></div>
                 <div class="h-[2px] w-14 bg-om_red"></div>
             </div>
-            <p class="font-proxima_nova text-2xl">{ data.sub_title }</p>
+            <section set:html={ sub_title } class="markdown" />
             <section set:html={ description } class="markdown" />
         </div>
     </div>
