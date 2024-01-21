@@ -7,6 +7,9 @@ import Container from "../../../layouts/Container.astro"
 
 // IMPORTS ASTRO COMPONENTS
 import HeaderItem from "./HeaderItem.astro"
+
+// IMPORTS JSX COMPONENTS
+import MobileHeader from "./MobileHeader"
 ---
 <header class={`${ env === "staging" ? "mt-0" : "" } bg-om_carbon_black relative z-20 h-20 hidden md:block`}>
     <Container>
@@ -31,3 +34,4 @@ import HeaderItem from "./HeaderItem.astro"
         </section>
     </Container>
 </header>
+<MobileHeader client:load />
