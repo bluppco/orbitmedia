@@ -3,7 +3,7 @@ import { animation } from "./data";
 
 const HeroAnimation = ( props ) => {
 
-    console.log( animation )
+    // console.log( animation )
     return (
         <div>
             hi

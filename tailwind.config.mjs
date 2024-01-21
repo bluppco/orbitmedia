@@ -7,6 +7,7 @@ export default {
 			fontFamily: {
 
 				"proxima_nova_condensed": [ "proxima-nova-condensed", "sans-serif" ],
+				"proxima_nova": [ "proxima-nova", "sans-serif" ]
 
 			},
 			colors: {
