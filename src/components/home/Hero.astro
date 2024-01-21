@@ -8,12 +8,13 @@ import OrangeArrowButton from "../../atoms/button/OrangeArrow.astro"
 
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+import HeroAnimation from "./jsx/HeroAnimation"
 
 const { data } = Astro.props
 ---
 <section class="bg-om_black h-full">
     <Container>
-        <section class="grid grid-cols-2 gap-4 py-24">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4 py-24">
             <section class="space-y-2">
                 <p class="text-white text-xl font-semibold font-proxima_nova_condensed">{ data.heading }</p>
                 <div class="space-y-8">
@@ -29,6 +30,9 @@ const { data } = Astro.props
                         alt=""
                         class="w-full h-[500px]"
                     />
+                </div>
+                <div>
+                    <HeroAnimation client:load />
                 </div>
             </section>
         </section>
