@@ -8,6 +8,7 @@ import OrangeArrowButton from "../../atoms/button/OrangeArrow.astro"
 
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+import HeroAnimation from "./jsx/HeroAnimation"
 
 const { data } = Astro.props
 ---
@@ -29,6 +30,9 @@ const { data } = Astro.props
                         alt=""
                         class="w-full h-[500px]"
                     />
+                </div>
+                <div>
+                    <HeroAnimation client:load />
                 </div>
             </section>
         </section>
