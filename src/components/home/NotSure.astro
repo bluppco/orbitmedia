@@ -1,15 +1,18 @@
 ---
+import { marked } from "marked"
+
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "../../atoms/heading/two/Vanilla.astro"
-import Paragraph from "../../atoms/paragraph/Vanilla.astro"
 
 // IMPORTS ASTRO LAYOUTS
 import Container from "../../layouts/Container.astro"
 
 const { data } = Astro.props
+
+const description = marked.parse( data.description )
 ---
 <Container>
     <div class="grid grid-cols-1 md:grid-cols-5 gap-20 py-32">
@@ -29,7 +32,7 @@ const { data } = Astro.props
                 <div class="h-[2px] w-14 bg-om_red"></div>
             </div>
             <p class="font-proxima_nova text-2xl">{ data.sub_title }</p>
-            <Paragraph>{ data.description }</Paragraph>
+            <section set:html={ description } class="markdown" />
         </div>
     </div>
 </Container>

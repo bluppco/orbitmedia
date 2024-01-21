@@ -33,7 +33,7 @@ const html = marked.parse( description )
         </div>
         {
 
-            italic_text ? <ItalicParagraph>{ description }</ItalicParagraph> : <section set:html={ html } class="markdown" />
+            italic_text ? <ItalicParagraph>{ description }</ItalicParagraph> : <section set:html={ html } class="markdown !text-2xl" />
 
         }
     </div>
