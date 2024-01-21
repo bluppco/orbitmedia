@@ -28,6 +28,7 @@ import WebsiteDesign from "../components/home/WebsiteDesign.astro"
 import NotSure from "../components/home/NotSure.astro"
 import TRLSTestimonial from "../components/home/TRLSTestimonial.astro"
 import ReachOutToChris from "../components/home/ReachOutToChris.astro"
+import Footer from "../components/common/footer/Footer.astro"
 ---
 <Layout
 	title={ meta_tags.title }
@@ -69,4 +70,5 @@ import ReachOutToChris from "../components/home/ReachOutToChris.astro"
 		</section>
 	</section>
 	<ReachOutToChris data={ home_data.reach_out_to_chris } />
+	<Footer />
 </Layout>

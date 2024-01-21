@@ -1,0 +1,15 @@
+---
+// IMPORT ASTRO COMPONENTS
+import SocialIcons from "./SocialIcons.astro"
+
+// IMPORT JSX COMPONENTS
+import NewsletterForm from "./NewsletterForm"
+
+const { title } = Astro.props
+---
+<div class="flex flex-col gap-4">
+    <p class="text-2xl font-extrabold font-proxima_nova_condensed text-white">{ title }</p>
+    <NewsletterForm client:load />
+    <p class="text-white text-sm font-proxima_nova font-light">By signing up you agree to our <span class="text-sm text-om_orange hover:text-white font-bold font-proxima_nova transition-all duration-200 cursor-pointer"> Privacy Policy. </span></p>
+    <SocialIcons />
+</div>

@@ -1,0 +1,29 @@
+---
+// IMPORT ASTRO COMPONENTS
+import FooterTitle from "./FooterTitle.astro"
+
+const { title, data } = Astro.props
+---
+<div class="flex flex-col gap-4">
+    <FooterTitle>{ title }</FooterTitle>
+    <ul class="space-y-1">
+        {
+
+            data.map( ( item ) => {
+
+                return (
+                    <li class="font-proxima_nova text-lg text-white">
+                        <a href={ item.data.link }>
+                            <p>{ item.data.title }</p>
+                        </a>
+                    </li>
+
+                )
+
+            })
+
+        }
+        <li class="text-lg text-om_orange hover:text-white font-bold font-proxima_nova transition-all duration-200 cursor-pointer">(773) 348-4581</li>
+        <li class="text-lg text-om_orange hover:text-white font-bold font-proxima_nova transition-all duration-200 cursor-pointer pt-4">Message Us ›</li>
+    </ul>
+</div>
