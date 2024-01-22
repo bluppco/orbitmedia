@@ -22,16 +22,16 @@ import { frontmatter as footerColumnOne } from "../../../content/footer-titles/t
 import { frontmatter as footerColumnThree } from "../../../content/footer-titles/title-three.md"
 import { frontmatter as footerColumnFour } from "../../../content/footer-titles/title-four.md"
 ---
-<section class="bg-om_carbon_black py-20">
+<section class="bg-om_carbon_black py-12 md:py-20">
     <Container>
-        <section class="grid grid-cols-2 gap-8">
-            <section class="grid grid-cols-5 gap-8">
-                <section class="col-span-4">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8">
+            <section class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8">
+                <section class="md:col-span-4">
                     <FooterColumnOne title={ footerColumnOne.title } />
                 </section>
                 <FooterColumnTwo />
             </section>
-            <section class="grid grid-cols-2 gap-16">
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
                 <FooterColumnThree title={ footerColumnThree.title } data={ footer_column_three } />
                 <FooterColumnFour title={ footerColumnFour.title } data={ footer_column_four } />
             </section>

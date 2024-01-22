@@ -4,7 +4,7 @@ const NewsletterForm = ( props ) => {
 
     return (
 
-        <div className="space-y-2 relative">
+        <div className="space-y-2 relative w-full">
             <div className="flex items-center">
                 <div className="w-full">
                     <input
