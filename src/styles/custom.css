@@ -15,6 +15,6 @@
 }
 .markdown ul {
 
-    @apply pl-4 py-6 !important ;
+    @apply pl-4 py-2 !important ;
 
 }

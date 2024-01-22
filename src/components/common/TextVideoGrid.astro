@@ -38,12 +38,13 @@ const html = marked.parse( description )
         }
     </div>
     <div class="col-span-3 space-y-2">
-        <div class="w-full aspect-video rounded overflow-hidden">
-            <img
-                src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
-                alt=""
-                class="w-full h-full"
-            />
+        <div class="w-full overflow-hidden rounded">
+            <iframe
+                src={ src }
+                width="720"
+                height="420"
+                allow="autoplay; fullscreen; picture-in-picture">
+            </iframe>
         </div>
         <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>
     </div>
