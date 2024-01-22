@@ -10,11 +10,11 @@
 }
 .markdown li {
 
-    @apply list-disc pl-2 py-2 font-light !important ;
+    @apply list-disc pl-2 py-3 font-light marker:text-om_red !important ;
 
 }
 .markdown ul {
 
-    @apply pl-4 !important ;
+    @apply pl-4 py-2 !important ;
 
 }

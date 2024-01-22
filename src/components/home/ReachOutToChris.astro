@@ -12,20 +12,20 @@ import Container from "../../layouts/Container.astro"
 
 const { data } = Astro.props
 ---
-<section class="bg-om_red py-32">
+<section class="bg-om_red py-12 md:py-32 md:my-6 selection:bg-black selection:text-white">
     <Container>
-        <section class="grid grid-cols-3 gap-10">
-            <section class="col-span-2 space-y-6">
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <section class="col-span-2 space-y-4 md:space-y-6">
                 <HeadingWhite>{ data.title }</HeadingWhite>
                 <ParagraphLargeWhite>{ data.description }</ParagraphLargeWhite>
             </section>
             <section class="flex items-center justify-end">
                 <div class="relative">
-                    <div class="w-28 aspect-square bg-zinc-200 rounded-full overflow-hidden absolute -top-4 -left-24">
+                    <div class="w-28 aspect-square bg-zinc-200 rounded-full overflow-hidden absolute -top-4 -left-24 z-40">
                         <img
                             src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
                             alt=""
-                            class="w-full h-full"
+                            class="w-full h-full object-cover"
                         />
                     </div>
                     <BlackOrangeArrowButton>{ data.button_text }</BlackOrangeArrowButton>

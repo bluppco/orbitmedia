@@ -7,6 +7,7 @@ export default {
 			fontFamily: {
 
 				"proxima_nova_condensed": [ "proxima-nova-condensed", "sans-serif" ],
+				"proxima_nova": [ "proxima-nova", "sans-serif" ]
 
 			},
 			colors: {
@@ -14,7 +15,8 @@ export default {
 				"om_orange": "#d85b41",
 				"om_zinc": "#f2f2f3",
 				"om_red": "#bf472d",
-				"om_black": "#1a1a1a"
+				"om_carbon_black": "#1a1a1a",
+				"om_black": "#0d0d0d"
 
 			}
 		},

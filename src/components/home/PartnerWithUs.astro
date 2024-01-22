@@ -6,7 +6,6 @@ import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "../../atoms/heading/two/Vanilla.astro"
-import Paragraph from "../../atoms/paragraph/Vanilla.astro"
 import CTALink from "../../atoms/CTALink.astro"
 
 // IMPORTS ASTRO LAYOUTS
@@ -17,9 +16,9 @@ const { data } = Astro.props
 const html = marked.parse( data.description )
 ---
 <Container>
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-20">
-        <div class="col-span-3 flex items-center">
-            <div class="w-full h-[600px] bg-zinc-200">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-20">
+        <div class="md:col-span-3 flex items-center">
+            <div class="w-full aspect-square md:aspect-auto md:h-[600px] bg-zinc-200">
                 <img
                     src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
                     alt=""
