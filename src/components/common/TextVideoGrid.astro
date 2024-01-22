@@ -34,11 +34,19 @@ const html = marked.parse( description )
         }
     </div>
     <div class="md:col-span-3 space-y-2">
-        <div class="w-full overflow-hidden rounded">
+        <div class="hidden md:block w-full overflow-hidden rounded">
             <iframe
                 src={ src }
                 width="720"
                 height="420"
+                allow="autoplay; fullscreen; picture-in-picture">
+            </iframe>
+        </div>
+        <div class="md:hidden w-full overflow-hidden rounded">
+            <iframe
+                src={ src }
+                width="320"
+                height="200"
                 allow="autoplay; fullscreen; picture-in-picture">
             </iframe>
         </div>
