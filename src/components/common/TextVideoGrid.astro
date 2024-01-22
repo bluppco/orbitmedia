@@ -20,7 +20,7 @@ const {
 const html = marked.parse( description )
 ---
 <div class="grid md:grid-cols-5 gap-8 md:gap-20">
-    <div class="flex flex-col justify-center gap-4 md:col-span-2">
+    <div class="flex flex-col justify-center gap-4 md:col-span-2 order-last md:order-none">
         <Heading>{ heading }</Heading>
         <HeadingTwo>{ title }</HeadingTwo>
         <div class="space-y-1">
