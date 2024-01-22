@@ -20,7 +20,8 @@ const {
     client_name,
     client_designation,
     client_company,
-    background_zinc
+    background_zinc,
+    image_aspect_video
 
 } = Astro.props
 ---
@@ -81,7 +82,7 @@ const {
                             }
                         </div>
                     </div>
-                    <div class="w-20 md:w-40 aspect-square">
+                    <div class={` ${ image_aspect_video ? "aspect-video" : "aspect-square" } md:hidden w-20`}>
                         <img
                             src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
                             alt={ alt }
@@ -98,11 +99,11 @@ const {
                 />
             </div>
         </div>
-        <div class="hidden md:block w-20 md:w-40 aspect-square">
+        <div class={` ${ image_aspect_video ? "aspect-video" : "aspect-square" } hidden md:block w-60`}>
             <img
                 src={ CDN_LINK + src + "?quality=" + IMAGE_QUALITY }
                 alt={ alt }
-                class="w-full h-full object-cover"
+                class="w-full h-full object-contain"
             />
         </div>
     </section>
