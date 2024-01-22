@@ -3,7 +3,7 @@ const { href, aria_label, target } = Astro.props
 ---
 <div class="w-fit overflow-hidden relative group">
     <a href={ href } aria-label={ aria_label } target={ target ? "_blank" : "" }>
-        <button class={`text-white bg-om_carbon_black rounded h-20 px-6 flex gap-2 justify-center items-center w-full after:w-0 after:h-full after:bg-black after:text-white after:absolute after:left-0 after:top-0 after:z-30 hover:after:w-full after:transition-[width] after:duration-200`}>
+        <button class={`text-white bg-om_carbon_black rounded h-20 px-6 flex gap-2 justify-center items-center w-full after:w-0 after:h-full after:bg-black after:text-white after:absolute after:origin-top-right after:left-0 after:skew-x-[-45deg] after:top-0 after:z-30 hover:after:w-[150%] after:transition-[width] after:duration-200`}>
             <div class="z-40 relative text-xl font-proxima_nova_condensed font-bold">
                 <slot />
             </div>
