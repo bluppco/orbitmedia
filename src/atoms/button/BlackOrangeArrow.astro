@@ -1,13 +1,13 @@
 ---
-const { href, aria_label } = Astro.props
+const { href, aria_label, target } = Astro.props
 ---
-<div>
-    <a href={ href } aria-label={ aria_label }>
-        <button class="bg-black h-20 px-6 rounded flex gap-2 items-center">
-            <p class="text-white text-xl font-proxima_nova_condensed font-bold">
-                <slot/>
-            </p>
-            <div class="w-4 aspect-square">
+<div class="w-fit overflow-hidden relative group">
+    <a href={ href } aria-label={ aria_label } target={ target ? "_blank" : "" }>
+        <button class={`text-white bg-om_carbon_black rounded h-20 px-6 flex gap-2 justify-center items-center w-full after:w-0 after:h-full after:bg-black after:text-white after:absolute after:left-0 after:top-0 after:z-30 hover:after:w-full after:transition-[width] after:duration-200`}>
+            <div class="z-40 relative text-xl font-proxima_nova_condensed font-bold">
+                <slot />
+            </div>
+            <div class="z-40 relative w-4 aspect-square">
                 <img
                     src="/icons/arrow-orange.svg"
                     alt=""
