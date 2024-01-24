@@ -1,6 +1,11 @@
 .markdown p {
 
-    @apply text-lg font-light leading-normal py-2 !important ;
+    @apply text-2xl font-light leading-normal py-2 font-proxima_nova !important ;
+
+}
+.markdown p a {
+
+    @apply text-om_red font-semibold !important ;
 
 }
 .markdown a {
