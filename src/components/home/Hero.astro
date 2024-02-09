@@ -8,13 +8,14 @@ import OrangeArrowButton from "../../atoms/button/OrangeArrow.astro"
 
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
-import HeroAnimation from "./jsx/HeroAnimation"
+
+import LottieAnimation from "astro-integration-lottie/Lottie.astro"
 
 const { data } = Astro.props
 ---
 <section class="bg-om_carbon_black h-full">
     <Container>
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-4 py-10 md:py-24">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4 py-10 md:py-24 items-center">
             <section class="space-y-2">
                 <p class="text-white text-base md:text-xl font-semibold font-proxima_nova_condensed">{ data.heading }</p>
                 <div class="space-y-4 md:space-y-8">
@@ -23,16 +24,11 @@ const { data } = Astro.props
                     <OrangeArrowButton href="" aria_label="">{ data.button_text }</OrangeArrowButton>
                 </div>
             </section>
-            <section class="flex items-center">
-                <div class="w-full h-96">
-                    <img
-                        src={ CDN_LINK + data.cover + "?quality=" + IMAGE_QUALITY }
-                        alt=""
-                        class="w-full h-96"
-                    />
-                </div>
-                <div>
-                    <HeroAnimation client:load />
+            <section class="flex items-center justify-center">
+                <div class="w-full aspect-square">
+                    <div class="overflow-hidden relative">
+                        <LottieAnimation src="animations/test.json" autoplay="visible" width={ 200 } height={ 100 }/>
+                    </div>
                 </div>
             </section>
         </section>
