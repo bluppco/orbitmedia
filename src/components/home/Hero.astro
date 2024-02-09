@@ -8,7 +8,7 @@ import OrangeArrowButton from "../../atoms/button/OrangeArrow.astro"
 
 // IMPORTS CONSTANTS
 import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
-import HeroAnimation from "./jsx/HeroAnimation"
+// import HeroAnimation from "./jsx/HeroAnimation"
 
 const { data } = Astro.props
 ---
@@ -20,7 +20,7 @@ const { data } = Astro.props
                 <div class="space-y-4 md:space-y-8">
                     <HeadingOneWhite>{ data.title }</HeadingOneWhite>
                     <p class="text-white text-xl md:text-2xl font-light font-proxima_nova">{ data.description }</p>
-                    <!-- <OrangeArrowButton href="" aria_label="">{ data.button_text }</OrangeArrowButton> -->
+                    <OrangeArrowButton href="" aria_label="">{ data.button_text }</OrangeArrowButton>
                 </div>
             </section>
             <section class="flex items-center">
@@ -32,7 +32,7 @@ const { data } = Astro.props
                     />
                 </div>
                 <div>
-                    <HeroAnimation client:load />
+                    <!-- <HeroAnimation client:load /> -->
                 </div>
             </section>
         </section>
