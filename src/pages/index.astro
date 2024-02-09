@@ -36,7 +36,7 @@ import Footer from "../components/common/footer/Footer.astro"
 	image={ meta_tags.cover }
 >
 	<section class="selection:bg-om_red selection:text-white">
-		<section class="md:h-screen 2xl:h-[800px] md:max-h-screen">
+		<!-- <section class="md:h-screen 2xl:h-[800px] md:max-h-screen">
 			<HeaderBanner />
 			<Header />
 			<Hero data={ home_data.hero } />
@@ -49,8 +49,8 @@ import Footer from "../components/common/footer/Footer.astro"
 			<Awards data={ home_data.awards } />
 			<STIFounderTestimonial data={ home_data.founder_of_sti } />
 		</section>
-		<MeetOurTeam team={ team } data={ home_data.meet_our_team } />
-		<!-- <ViennaBeefTestimonial data={ testimonials } />
+		<MeetOurTeam team={ team } data={ home_data.meet_our_team } /> -->
+		<ViennaBeefTestimonial data={ testimonials } />
 		<section class="flex flex-col gap-12 md:gap-32 py-12 md:py-32 bg-om_zinc">
 			<OptimizeWebsite data={ home_data.optimize_website } />
 			<DataDrivenCompany
@@ -67,8 +67,8 @@ import Footer from "../components/common/footer/Footer.astro"
 			<WebsiteDesign data={ home_data.website_design } />
 			<NotSure data={ home_data.not_sure } />
 			<TRLSTestimonial data={ testimonials } />
-		</section> -->
+		</section>
 	</section>
-	<!-- <ReachOutToChris data={ home_data.reach_out_to_chris } /> -->
-	<!-- <Footer /> -->
+	<ReachOutToChris data={ home_data.reach_out_to_chris } />
+	<Footer />
 </Layout>
