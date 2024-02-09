@@ -10,6 +10,12 @@ import HeaderItem from "./HeaderItem.astro"
 
 // IMPORTS JSX COMPONENTS
 import MobileHeader from "./MobileHeader"
+
+// IMPORT HEADER COLLECTION
+import { getCollection } from "astro:content"
+
+let header_data = await getCollection("header")
+header_data = header_data.sort((a, b) => a.data.order - b.data.order)
 ---
 <header class={`${ env === "staging" ? "mt-0" : "" } bg-om_carbon_black relative z-20 h-20 hidden md:block`}>
     <Container>
@@ -24,13 +30,65 @@ import MobileHeader from "./MobileHeader"
                 </a>
             </div>
             <nav>
-                <ul class="flex gap-10 items-center">
-                    <HeaderItem href="">Web Design & Development</HeaderItem>
-                    <HeaderItem href="">Website Optimization</HeaderItem>
-                    <HeaderItem href="">Portfolio</HeaderItem>
-                    <HeaderItem href="">Blog</HeaderItem>
-                    <HeaderItem href="">About</HeaderItem>
-                    <HeaderItem href="">Contact</HeaderItem>
+                <ul class="flex md:gap-10 pt-4">
+                    {
+
+                        header_data.map( ( item, index ) => {
+
+                            return (
+                                <li class="flex-col text-lg text-white font-proxima_nova_condensed font-semibold flex items-center gap-2 relative group cursor-pointer">
+                                    <a href={ "/" + item.data.slug } class="group-hover:text-om_orange transition-all duration-300" aria-label={"explore " + item.data.title }>{ item.data.title }</a>
+                                    {
+
+                                        item.data.has_dropdown &&
+                                        <div>
+                                            <img
+                                                src="/icons/arrow-down.svg"
+                                                class="w-2 aspect-square"
+                                                alt="dropdown menu icon"
+                                            />
+                                            <div class="hidden group-hover:block group-hover:flex-col absolute p-2 rounded bg-white -left-32 z-10 top-6 w-[300px] gap-2 shadow transition-all duration-300 delay-1000">
+                                                <div class="flex flex-col">
+                                                    {
+
+                                                        item.data.items.map( ( sub_item, sub_item_index ) => {
+
+                                                            return(
+                                                                <div class={` ${ sub_item_index < 2 ? "mb-4 p-6" : "px-6" } ${ sub_item_index === 2 ? "pt-4" : "" } ${ sub_item_index === 7 ? "pb-4" : "" } bg-om_zinc space-y-2`}>
+                                                                    <a
+                                                                        href={ sub_item.slug }
+                                                                        class=""
+                                                                        aria-label={ "explore" + sub_item.title }
+                                                                    >
+                                                                        <div class="flex items-center">
+                                                                            <p class={` ${ sub_item_index < 2 ? "text-2xl font-extrabold" : "text-lg font-semibold" } text-om_black hover:text-om_orange font-proxima_nova_condensed`}>{ sub_item.title }</p>
+                                                                            <div class="w-4 aspect-square">
+                                                                                <img
+                                                                                    src="/icons/greater-than-orange.svg"
+                                                                                    alt=""
+                                                                                    class="w-4 aspect-square"
+                                                                                />
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <p class="font-light text-om_black leading-tight">{ sub_item.description }</p>
+                                                                </div>
+                                                            )
+
+                                                        })
+
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                                </li>
+                            )
+
+                        })
+
+                    }
                 </ul>
             </nav>
         </section>
