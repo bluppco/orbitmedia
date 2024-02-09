@@ -1,0 +1,20 @@
+---
+// IMPORT ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+// IMPORT ASTRO COMPONENTS
+import OptimizeWebsiteItem from "./OptimizeWebsiteItem.astro"
+
+const { data } = Astro.props
+---
+<Container>
+    <section class="pt-12 md:pt-32">
+        <OptimizeWebsiteItem
+            title={ data.title }
+            sub_title={ data.sub_title }
+            description={ data.description }
+            src={ data.cover }
+            alt={ data.title }
+        />
+    </section>
+</Container>

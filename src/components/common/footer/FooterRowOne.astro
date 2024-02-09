@@ -1,0 +1,40 @@
+---
+// IMPORT ASTRO LAYOUTS
+import Container from "../../../layouts/Container.astro"
+
+// IMPORT ASTRO COMPONENTS
+import FooterColumnOne from "./FooterColumnOne.astro"
+import FooterColumnTwo from "./FooterColumnTwo.astro"
+import FooterColumnThree from "./FooterColumnThree.astro"
+import FooterColumnFour from "./FooterColumnFour.astro"
+
+import { getCollection } from 'astro:content'
+
+let footer_column_three = await getCollection('footer-column-three')
+footer_column_three = footer_column_three.sort((a, b) => a.data.order - b.data.order)
+footer_column_three = footer_column_three.filter( ( item ) => item.data.live )
+
+let footer_column_four = await getCollection('footer-column-four')
+footer_column_four = footer_column_four.sort((a, b) => a.data.order - b.data.order)
+footer_column_four = footer_column_four.filter( ( item ) => item.data.live )
+
+import { frontmatter as footerColumnOne } from "../../../content/footer-titles/title-one.md"
+import { frontmatter as footerColumnThree } from "../../../content/footer-titles/title-three.md"
+import { frontmatter as footerColumnFour } from "../../../content/footer-titles/title-four.md"
+---
+<section class="bg-om_carbon_black py-12 md:py-20">
+    <Container>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8">
+            <section class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8">
+                <section class="md:col-span-4">
+                    <FooterColumnOne title={ footerColumnOne.title } />
+                </section>
+                <FooterColumnTwo />
+            </section>
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                <FooterColumnThree title={ footerColumnThree.title } data={ footer_column_three } />
+                <FooterColumnFour title={ footerColumnFour.title } data={ footer_column_four } />
+            </section>
+        </section>
+    </Container>
+</section>

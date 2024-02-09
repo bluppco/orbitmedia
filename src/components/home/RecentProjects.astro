@@ -1,0 +1,36 @@
+---
+const { data } = Astro.props
+
+const images = data.images.sort( ( a,b ) => a.order - b.order )
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwoCenter from "../../atoms/heading/two/Center.astro"
+import Container from "../../layouts/Container.astro"
+---
+<Container>
+    <HeadingTwoCenter>{ data.title }</HeadingTwoCenter>
+    <section class="grid grid-cols-3 md:grid-cols-8 gap-x-10 gap-y-2 h-fit">
+        {
+
+            images.map( ( item ) => {
+
+                return (
+                    <a href={ "/portfolio/" + item.slug }>
+                        <div class="w-full aspect-square">
+                            <img
+                                src={ CDN_LINK + item.file + "?quality=" + IMAGE_QUALITY }
+                                class="w-full h-full object-contain"
+                                alt={ "portfolio" + item.name }
+                            />
+                        </div>
+                    </a>
+                )
+
+            })
+
+        }
+    </section>
+</Container>

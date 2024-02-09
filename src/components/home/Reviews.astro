@@ -1,0 +1,40 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingCenter from "../../atoms/HeadingCenter.astro"
+
+// IMPORTS CONSTANTS
+import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+const { data } = Astro.props
+
+const images = data.images.sort(( a,b ) => a.order -b.order )
+---
+<Container>
+    <section class="space-y-10">
+        <HeadingCenter>{ data.title }</HeadingCenter>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {
+
+                images.map( ( value ) => {
+
+                    return(
+                        <div class="bg-white p-16">
+                            <div class="w-full aspect-[3/1]">
+                                <img
+                                    src={ CDN_LINK + value.file + "?quality=" + IMAGE_QUALITY }
+                                    alt=""
+                                    class="w-full h-full object-contain"
+                                />
+                            </div>
+                        </div>
+                    )
+
+                })
+
+            }
+        </div>
+    </section>
+</Container>

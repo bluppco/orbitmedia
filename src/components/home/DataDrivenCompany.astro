@@ -1,0 +1,54 @@
+---
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "../../atoms/heading/two/Vanilla.astro"
+import Paragraph from "../../atoms/paragraph/Vanilla.astro"
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "../../layouts/Container.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import DataCard from "./DataCard.astro"
+
+const {
+
+    data,
+    data_and_analytics,
+    keyword_research,
+    interview_and_investigate
+
+} = Astro.props
+---
+<Container>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+        <div class="space-y-8">
+            <DataCard
+                title={ data_and_analytics.title }
+                description={ data_and_analytics.description }
+                src={ data_and_analytics.cover }
+                alt={ data_and_analytics.title }
+            />
+            <DataCard
+                title={ keyword_research.title }
+                description={ keyword_research.description }
+                src={ keyword_research.cover }
+                alt={ keyword_research.title }
+            />
+            <DataCard
+                title={ interview_and_investigate.title }
+                description={ interview_and_investigate.description }
+                src={ interview_and_investigate.cover }
+                alt={ interview_and_investigate.title }
+            />
+        </div>
+        <div class="flex flex-col justify-center gap-6">
+            <HeadingTwo>{ data.heading }</HeadingTwo>
+            <div class="space-y-1">
+                <div class="h-[2px] w-14 bg-om_red"></div>
+                <div class="h-[2px] w-14 bg-om_red"></div>
+            </div>
+            <p class="text-2xl font-bold font-proxima_nova">{ data.title }</p>
+            <p class="text-2xl font-proxima_nova">{ data.sub_title }</p>
+            <Paragraph>{ data.description }</Paragraph>
+        </div>
+    </section>
+</Container>

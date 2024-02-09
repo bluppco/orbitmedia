@@ -1,0 +1,55 @@
+---
+import { marked } from "marked"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "../../atoms/heading/two/Vanilla.astro"
+import Heading from "../../atoms/Heading.astro"
+import ItalicParagraph from "../../atoms/paragraph/Italic.astro"
+
+const {
+
+    heading,
+    title,
+    description,
+    src,
+    video_text,
+    italic_text
+
+} = Astro.props
+
+const html = marked.parse( description )
+---
+<div class="grid md:grid-cols-5 gap-8 md:gap-20">
+    <div class="flex flex-col justify-center gap-4 md:col-span-2 order-last md:order-none">
+        <Heading>{ heading }</Heading>
+        <HeadingTwo>{ title }</HeadingTwo>
+        <div class="space-y-1">
+            <div class="h-[2px] w-14 bg-om_red"></div>
+            <div class="h-[2px] w-14 bg-om_red"></div>
+        </div>
+        {
+
+            italic_text ? <ItalicParagraph>{ description }</ItalicParagraph> : <section set:html={ html } class="markdown" />
+
+        }
+    </div>
+    <div class="md:col-span-3 space-y-2 flex flex-col justify-self-end">
+        <div class="hidden md:block w-full overflow-hidden rounded">
+            <iframe
+                src={ src }
+                width="720"
+                height="420"
+                allow="autoplay; fullscreen; picture-in-picture">
+            </iframe>
+        </div>
+        <div class="md:hidden w-full overflow-hidden rounded">
+            <iframe
+                src={ src }
+                width="320"
+                height="200"
+                allow="autoplay; fullscreen; picture-in-picture">
+            </iframe>
+        </div>
+        <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>
+    </div>
+</div>
