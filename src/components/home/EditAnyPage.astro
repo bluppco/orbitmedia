@@ -15,7 +15,7 @@ const { data } = Astro.props
 const description = marked.parse( data.description )
 ---
 <Container>
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-20 py-12 md:py-32">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-20 py-12 md:py-32 h-fit">
         <div class="md:col-span-3 flex items-center">
             <div class="w-full aspect-[3/2]">
                 <img
