@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 
 import react from "@astrojs/react";
+import lottie from "astro-integration-lottie";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,5 +15,5 @@ export default defineConfig({
       type: 'pages'
     }
   }),
-  integrations: [mdx(), tailwind({applyBaseStyles: false}), react()]
+  integrations: [mdx(), tailwind({applyBaseStyles: false}), react(), lottie()]
 });
