@@ -1,5 +1,5 @@
 import Lottie from "lottie-react"
-import { animation } from "./data";
+// import { animation } from "./data";
 
 const HeroAnimation = ( props ) => {
 
