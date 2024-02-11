@@ -36,7 +36,7 @@ header_data = header_data.sort((a, b) => a.data.order - b.data.order)
                         header_data.map( ( item, index ) => {
 
                             return (
-                                <li class="flex-col text-lg text-white font-proxima_nova_condensed font-semibold flex items-center gap-2 relative group cursor-pointer">
+                                <li class="flex-col text-lg text-white font-proxima_nova_condensed font-semibold flex items-center relative group cursor-pointer">
                                     <a href={ "/" + item.data.slug } class="group-hover:text-om_orange transition-all duration-300" aria-label={"explore " + item.data.title }>{ item.data.title }</a>
                                     {
 
@@ -47,7 +47,7 @@ header_data = header_data.sort((a, b) => a.data.order - b.data.order)
                                                 class="w-2 aspect-square"
                                                 alt="dropdown menu icon"
                                             />
-                                            <div class="hidden group-hover:block group-hover:flex-col absolute p-2 rounded bg-white -left-32 z-10 top-6 w-[300px] gap-2 shadow transition-all duration-300 delay-1000">
+                                            <div class="hidden group-hover:block group-hover:flex-col absolute p-2 rounded bg-white -left-32 z-10 top-9 w-[300px] gap-2 shadow transition-all duration-300 delay-1000">
                                                 <div class="flex flex-col">
                                                     {
 
