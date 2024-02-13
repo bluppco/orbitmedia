@@ -15,7 +15,7 @@ const BenchmarkingJSX = ( props ) => {
 
     const formatNumber = ( number ) => {
 
-        if( number < 100)
+        if( number < 1000)
             return (number).toFixed(2) + " MB"
         else if( number/1000 < 1000)
             return (number/1000).toFixed(2) + " GB"
