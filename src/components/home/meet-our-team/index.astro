@@ -1,11 +1,16 @@
 ---
-// IMPORTS CONSTANTS
-import { CDN_LINK } from "@/constants/image"
-
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
-const { data, team } = Astro.props
+// IMPORTS ASTRO ATOMS
+import Picture from "@/atoms/picture/index.astro"
+
+const {
+
+    data,
+    team
+
+} = Astro.props
 ---
 <Container>
     <section class="py-12 md:py-32">
@@ -26,10 +31,10 @@ const { data, team } = Astro.props
                     return (
                         <div class="bg-om_zinc rounded">
                             <div class="w-full aspect-square">
-                                <img
-                                    src={ CDN_LINK + item.cover }
-                                    class="w-full h-full object-cover object-top"
+                                <Picture
+                                    src={ item.cover }
                                     alt={ "portfolio" + item.name }
+                                    image_width="600"
                                 />
                             </div>
                             <div class="p-8 space-y-2">
