@@ -1,0 +1,37 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingOneWhite from "@/atoms/headings/one/white/index.astro"
+import PrimaryButton from "@/atoms/buttons/primary/index.astro"
+import Link from "@/atoms/links/index.astro"
+
+// IMPORTS LOTTIE ANIMATION
+import LottieAnimation from "astro-integration-lottie/Lottie.astro"
+
+const { data } = Astro.props
+---
+<section class="bg-om_carbon_black h-full">
+    <Container>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4 py-10 md:py-24 items-center">
+            <section class="space-y-2">
+                <p class="text-white text-base md:text-xl font-semibold font-proxima_nova_condensed">{ data.heading }</p>
+                <div class="space-y-4 md:space-y-8">
+                    <HeadingOneWhite>{ data.title }</HeadingOneWhite>
+                    <p class="text-white text-xl md:text-2xl font-light font-proxima_nova">{ data.description }</p>
+                    <Link href="" aria_label="">
+                        <PrimaryButton>{ data.button_text }</PrimaryButton>
+                    </Link>
+                </div>
+            </section>
+            <section class="flex items-center justify-center">
+                <div class="w-full aspect-square">
+                    <div class="overflow-hidden relative">
+                        <LottieAnimation src="/animations/hero.json" autoplay="visible" width={ 200 } height={ 100 }/>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </Container>
+</section>

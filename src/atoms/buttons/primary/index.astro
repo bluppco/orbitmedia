@@ -1,0 +1,14 @@
+<div class="w-fit overflow-hidden relative group">
+    <button class={`text-white bg-om_orange rounded h-14 px-6 flex gap-2 justify-center items-center w-full after:w-0 after:h-full after:bg-black/10 after:text-white after:absolute after:origin-top-right after:left-0 after:skew-x-[-45deg] after:z-30 hover:after:w-[150%] after:transition-[width] after:duration-200`}>
+        <div class="z-40 relative text-xl font-proxima_nova_condensed font-bold">
+            <slot />
+        </div>
+        <div class="w-4 aspect-square">
+            <img
+                src="/icons/arrow.svg"
+                alt=""
+                class="w-4 aspect-square"
+            />
+        </div>
+    </button>
+</div>

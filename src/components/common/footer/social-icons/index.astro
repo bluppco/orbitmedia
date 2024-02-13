@@ -1,0 +1,36 @@
+---
+// IMPORT ASTRO COMPONENTS
+import SocialIcon from "./image/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import Link from "@/atoms/links/target/blank/index.astro"
+---
+<div class="flex items-center gap-4">
+    <Link href="https://twitter.com/orbiteers">
+        <div class="w-5 aspect-square">
+            <img
+                src="/icons/x.svg"
+                alt=""
+                class="w-5 aspect-square"
+            />
+        </div>
+    </Link>
+    <SocialIcon
+        src="/icons/facebook.svg"
+        alt=""
+        aria_label=""
+        href="https://www.facebook.com/orbitmediastudios"
+    />
+    <SocialIcon
+        src="/icons/linkedin.svg"
+        alt=""
+        aria_label=""
+        href="https://www.linkedin.com/company/orbit-media-studios-inc./"
+    />
+    <SocialIcon
+        src="/icons/youtube.svg"
+        alt=""
+        aria_label=""
+        href="https://www.youtube.com/Orbitmedia"
+    />
+</div>

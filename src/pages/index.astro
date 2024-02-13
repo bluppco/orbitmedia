@@ -1,39 +1,46 @@
 ---
-import { homeAPI } from "../api/home/index"
+import { homeAPI } from "@/api/home/index"
 
 const runtime = Astro.locals.runtime;
 const data = await homeAPI( runtime.env.ENVIRONMENT )
 
 const { home_data, team, testimonials, meta_tags } = data
 
+const CDN_LINK = runtime.env.CDN_LINK
+const PROJECT = runtime.env.PROJECT
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
+
 // IMPORTS ASTRO COMPONENTS
-import Layout from "../layouts/Layout.astro"
-import RecentProjects from "../components/home/RecentProjects.astro"
-import MeetOurTeam from "../components/home/MeetOurTeam.astro"
-import HeaderBanner from "../components/home/HeaderBanner.astro"
-import Header from "../components/common/header/Header.astro"
-import Hero from "../components/home/Hero.astro"
-import CofounderTalk from "../components/home/CofounderTalk.astro"
-import PartnerWithUs from "../components/home/PartnerWithUs.astro"
-import Reviews from "../components/home/Reviews.astro"
-import Awards from "../components/home/Awards.astro"
-import STIFounderTestimonial from "../components/home/STIFounderTestimonial.astro"
-import ViennaBeefTestimonial from "../components/home/ViennaBeefTestimonial.astro"
-import OptimizeWebsite from "../components/home/OptimizeWebsite.astro"
-import DataDrivenCompany from "../components/home/DataDrivenCompany.astro"
-import SgoTestimonials from "../components/home/SgoTestimonials.astro"
-import UpdateMessaging from "../components/home/UpdateMessaging.astro"
-import EditAnyPage from "../components/home/EditAnyPage.astro"
-import WebsiteDesign from "../components/home/WebsiteDesign.astro"
-import NotSure from "../components/home/NotSure.astro"
-import TRLSTestimonial from "../components/home/TRLSTestimonial.astro"
-import ReachOutToChris from "../components/home/ReachOutToChris.astro"
-import Footer from "../components/common/footer/Footer.astro"
+import RecentProjects from "@/components/home/recent-projects/index.astro"
+import MeetOurTeam from "@/components/home/meet-our-team/index.astro"
+import HeaderBanner from "@/components/common/header-banner/index.astro"
+import Header from "@/components/common/header/index.astro"
+import Hero from "@/components/home/hero/index.astro"
+import CofounderTalk from "@/components/home/cofounder-talk/index.astro"
+import PartnerWithUs from "@/components/home/partner-with-us/index.astro"
+import Reviews from "@/components/home/reviews/index.astro"
+import Awards from "@/components/home/Awards.astro"
+import STIFounderTestimonial from "@/components/home/sti-founder-testimonial/index.astro"
+import ViennaBeefTestimonial from "@/components/home/viennabeef-testimonial/index.astro"
+import OptimizeWebsite from "@/components/home/optimize-website/index.astro"
+import DataDrivenCompany from "@/components/home/data-driven-company/index.astro"
+import SgoTestimonial from "@/components/home/sgo-testimonial/index.astro"
+import UpdateMessaging from "@/components/home/update-messaging/index.astro"
+import EditAnyPage from "@/components/home/edit-any-page/index.astro"
+import WebsiteDesign from "@/components/home/website-design/index.astro"
+import NotSure from "@/components/home/not-sure/index.astro"
+import TRLSTestimonial from "@/components/home/trls-testimonial/index.astro"
+import ReachOutToChris from "@/components/home/reach-out-to-chris/index.astro"
+import Footer from "@/components/common/footer/index.astro"
 ---
 <Layout
 	title={ meta_tags.title }
 	description={ meta_tags.description }
 	image={ meta_tags.cover }
+	CDN_LINK={ CDN_LINK }
+	PROJECT={ PROJECT }
 >
 	<section class="selection:bg-om_red selection:text-white">
 		<section class="md:h-screen 2xl:h-[800px] md:max-h-screen">
@@ -42,7 +49,9 @@ import Footer from "../components/common/footer/Footer.astro"
 			<Hero data={ home_data.hero } />
 		</section>
 		<section class="flex flex-col gap-12 md:gap-32 py-12 md:py-32 bg-om_zinc">
-			<RecentProjects data={ home_data.recent_projects }/>
+			<RecentProjects
+				data={ home_data.recent_projects }
+			/>
 			<CofounderTalk data={ home_data.cofounder_talk } />
 			<PartnerWithUs data={ home_data.partner_with_us } />
 			<Reviews data={ home_data.reviews } />
@@ -50,7 +59,6 @@ import Footer from "../components/common/footer/Footer.astro"
 			<STIFounderTestimonial data={ home_data.founder_of_sti } />
 		</section>
 		<MeetOurTeam team={ team } data={ home_data.meet_our_team } />
-
 		<ViennaBeefTestimonial data={ testimonials } />
 		<section class="flex flex-col gap-12 md:gap-32 py-12 md:py-32 bg-om_zinc">
 			<OptimizeWebsite data={ home_data.optimize_website } />
@@ -60,7 +68,7 @@ import Footer from "../components/common/footer/Footer.astro"
 				keyword_research={ home_data.keyword_research }
 				interview_and_investigate={ home_data.interview_and_investigate }
 			/>
-			<SgoTestimonials data={ testimonials } />
+			<SgoTestimonial data={ testimonials } />
 		</section>
 		<UpdateMessaging data={ home_data.update_messaging } />
 		<EditAnyPage data={ home_data.edit_any_page } />

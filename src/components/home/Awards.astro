@@ -1,9 +1,9 @@
 ---
 // IMPORTS ASTRO LAYOUTS
-import Container from "../../layouts/Container.astro"
+import Container from "@/layouts/container/index.astro"
 
-// IMPORTS CONSTANTS
-import { CDN_LINK, IMAGE_QUALITY } from "../../constants/image"
+// IMPORTS ASTRO ATOMS
+import ContainPicture from "@/atoms/picture/contain/index.astro"
 
 const { data } = Astro.props
 
@@ -17,10 +17,10 @@ const images = data.images.sort(( a,b ) => a.order -b.order )
 
                 return(
                     <div class="w-full aspect-video">
-                        <img
-                            src={ CDN_LINK + value.file + "?quality=" + IMAGE_QUALITY }
+                        <ContainPicture
+                            src={ value.file }
                             alt=""
-                            class="w-full h-full object-contain"
+                            image_width="600"
                         />
                     </div>
                 )

@@ -1,0 +1,18 @@
+---
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import TextImageGrid from "@/components/common/text-image-grid/index.astro"
+
+const { data } = Astro.props
+---
+<Container>
+    <TextImageGrid
+        title={ data.heading }
+        sub_title={ data.title }
+        description={ data.description }
+        src={ data.cover }
+        alt={ data.heading }
+    />
+</Container>

@@ -1,0 +1,19 @@
+---
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import TextVideoGrid from "@/components/common/text-video-grid/index.astro"
+
+const { data } = Astro.props
+---
+<Container>
+    <TextVideoGrid
+        heading={ data.heading }
+        title={ data.title }
+        description={ data.description }
+        src={ data.video_link }
+        video_text={ data.video_text }
+        italic_text={ true }
+    />
+</Container>

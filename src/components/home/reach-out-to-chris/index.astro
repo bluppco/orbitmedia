@@ -1,0 +1,34 @@
+---
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingWhite from "@/atoms/headings/two/white/index.astro"
+import ParagraphLargeWhite from "@/atoms/paragraph/large/white/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+import SecondaryButton from "@/atoms/buttons/secondary/index.astro"
+
+const { data } = Astro.props
+---
+<section class="bg-om_red py-12 md:py-32 md:my-6 selection:bg-black selection:text-white">
+    <Container>
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <section class="col-span-2 space-y-4 md:space-y-6">
+                <HeadingWhite>{ data.title }</HeadingWhite>
+                <ParagraphLargeWhite>{ data.description }</ParagraphLargeWhite>
+            </section>
+            <section class="flex items-center justify-end">
+                <div class="relative">
+                    <div class="w-28 aspect-square bg-zinc-200 rounded-full overflow-hidden absolute -top-4 -left-24 z-40">
+                        <Picture
+                            src={ data.cover }
+                            alt=""
+                            image_width="200"
+                        />
+                    </div>
+                    <SecondaryButton>{ data.button_text }</SecondaryButton>
+                </div>
+            </section>
+        </section>
+    </Container>
+</section>
