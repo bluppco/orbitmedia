@@ -5,7 +5,6 @@ import { marked } from "marked"
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 import Heading from "@/atoms/heading/index.astro"
-import ItalicParagraph from "@/atoms/paragraph/regular/italic/index.astro"
 
 const {
 
@@ -13,8 +12,7 @@ const {
     title,
     description,
     src,
-    video_text,
-    italic_text
+    video_text
 
 } = Astro.props
 
@@ -28,11 +26,7 @@ const html = marked.parse( description )
             <div class="h-[2px] w-14 bg-om_red"></div>
             <div class="h-[2px] w-14 bg-om_red"></div>
         </div>
-        {
-
-            italic_text ? <section set:html={ html } class="markdown italictext" /> : <section set:html={ html } class="markdown" />
-
-        }
+        <section set:html={ html } class="markdown largetext" />
     </div>
     <div class="md:col-span-3 space-y-2 flex flex-col justify-self-end">
         <div class="hidden md:block w-full overflow-hidden rounded">
