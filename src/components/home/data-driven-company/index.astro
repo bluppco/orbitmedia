@@ -20,7 +20,7 @@ const {
 ---
 <Container>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
-        <div class="space-y-8">
+        <div class="space-y-8 order-last md:order-none">
             <DataCard
                 title={ data_and_analytics.title }
                 description={ data_and_analytics.description }
@@ -47,7 +47,7 @@ const {
                 <div class="h-[2px] w-14 bg-om_red"></div>
             </div>
             <p class="text-2xl font-bold font-proxima_nova">{ data.title }</p>
-            <p class="text-2xl font-proxima_nova">{ data.sub_title }</p>
+            <p class="text-xl font-proxima_nova">{ data.sub_title }</p>
             <Paragraph>{ data.description }</Paragraph>
         </div>
     </section>

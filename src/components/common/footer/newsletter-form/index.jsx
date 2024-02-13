@@ -10,7 +10,7 @@ const NewsletterForm = ( props ) => {
                     <input
                         type="text"
                         placeholder="Email Address (Required)"
-                        className="h-14 w-full rounded px-6 text-lg text-om_carbon_black font-proxima_nova font-light"
+                        className="h-14 w-full rounded px-6 md:text-lg text-om_carbon_black font-proxima_nova font-light"
                         name="email"
                     />
                 </div>

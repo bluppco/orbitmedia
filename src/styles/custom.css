@@ -8,10 +8,14 @@
     @apply text-lg font-light leading-normal py-2 font-proxima_nova italic !important ;
 
 }
+.markdown.largeboldtext p {
 
+    @apply text-2xl font-bold leading-normal py-2 font-proxima_nova !important ;
+
+}
 .markdown.largetext p {
 
-    @apply text-2xl font-light leading-normal py-2 font-proxima_nova !important ;
+    @apply text-xl md:text-2xl font-light leading-normal py-2 font-proxima_nova !important ;
 
 }
 .markdown p a {

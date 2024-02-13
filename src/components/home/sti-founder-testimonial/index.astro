@@ -7,13 +7,15 @@ import TextVideoGrid from "@/components/common/text-video-grid/index.astro"
 
 const { data } = Astro.props
 ---
-<Container>
-    <TextVideoGrid
-        heading={ data.heading }
-        title={ data.title }
-        description={ data.description }
-        src={ data.video_link }
-        video_text={ data.video_text }
-        italic_text={ true }
-    />
-</Container>
+<section class="pt-12 md:pt-0">
+    <Container>
+        <TextVideoGrid
+            heading={ data.heading }
+            title={ data.title }
+            description={ data.description }
+            src={ data.video_link }
+            video_text={ data.video_text }
+            italic_text={ true }
+        />
+    </Container>
+</section>

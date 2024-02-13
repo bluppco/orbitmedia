@@ -10,29 +10,31 @@ const { data } = Astro.props
 
 const images = data.images.sort(( a,b ) => a.order -b.order )
 ---
-<Container>
-    <section class="space-y-10">
-        <HeadingCenter>{ data.title }</HeadingCenter>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {
+<section class="pt-12 md:pt-0">
+    <Container>
+        <section class="space-y-10">
+            <HeadingCenter>{ data.title }</HeadingCenter>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                {
 
-                images.map( ( value ) => {
+                    images.map( ( value ) => {
 
-                    return(
-                        <div class="bg-white p-16">
-                            <div class="w-full aspect-[3/1]">
-                                <ContainPicture
-                                    src={ value.file }
-                                    alt=""
-                                    image_width="500"
-                                />
+                        return(
+                            <div class="bg-white p-16">
+                                <div class="w-full aspect-[3/1]">
+                                    <ContainPicture
+                                        src={ value.file }
+                                        alt=""
+                                        image_width="500"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    )
+                        )
 
-                })
+                    })
 
-            }
-        </div>
-    </section>
-</Container>
+                }
+            </div>
+        </section>
+    </Container>
+</section>
