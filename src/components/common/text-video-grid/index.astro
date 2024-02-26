@@ -1,24 +1,25 @@
 ---
-// IMPORTS MARKED
-import { marked } from "marked"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 import Heading from "@/atoms/heading/index.astro"
-import ItalicParagraph from "@/atoms/paragraph/regular/italic/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
 
 const {
 
-    heading,
-    title,
     description,
-    src,
-    video_text,
-    italic_text
+    heading,
+    italic_text,
+    source,
+    title,
+    video_text
 
 } = Astro.props
 
 const html = marked.parse( description )
+
 ---
 <div class="grid md:grid-cols-5 gap-8 md:gap-20">
     <div class="flex flex-col justify-center gap-4 md:col-span-2 order-last md:order-none">
@@ -37,18 +38,20 @@ const html = marked.parse( description )
     <div class="md:col-span-3 space-y-2 flex flex-col justify-self-end">
         <div class="hidden md:block w-full overflow-hidden rounded">
             <iframe
-                src={ src }
-                width="720"
+                allow="autoplay; fullscreen; picture-in-picture"
                 height="420"
-                allow="autoplay; fullscreen; picture-in-picture">
+                src={ source }
+                width="720"
+            >
             </iframe>
         </div>
         <div class="md:hidden w-full overflow-hidden rounded">
             <iframe
-                src={ src }
-                width="320"
+                allow="autoplay; fullscreen; picture-in-picture"
                 height="200"
-                allow="autoplay; fullscreen; picture-in-picture">
+                src={ source }
+                width="320"
+            >
             </iframe>
         </div>
         <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>

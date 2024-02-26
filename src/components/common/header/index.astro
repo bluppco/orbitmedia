@@ -6,26 +6,31 @@ const env = runtime.env.ENVIRONMENT
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS JSX COMPONENTS
-import MobileHeader from "./mobile/index"
+import MobileHeader from "@/components/common/header/mobile/index.jsx"
 
 // IMPORTS ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
 
-// IMPORT HEADER COLLECTION
+// IMPORTS HEADER COLLECTION
 import { getCollection } from "astro:content"
 
 let header_data = await getCollection("header")
 header_data = header_data.sort((a, b) => a.data.order - b.data.order)
+
+// GET ASTRO PROPS
+const { ENVIRONMENT } = Astro.props
+
 ---
-<header class={`${ env === "staging" ? "mt-0" : "" } bg-om_carbon_black relative z-20 h-20 hidden md:block`}>
+<header class={`${ ENVIRONMENT === "staging" ? "mt-0" : "" } bg-om_carbon_black relative z-20 h-20 hidden md:block`}>
     <Container>
         <section class="flex justify-between items-center h-full">
             <div class="w-60 aspect[3/1]">
-                <Link href="/">
-                    <img
-                        src="/logo/om-logo.png"
-                        alt=""
-                        class="w-full h-full object-cover"
+                <Link href="/" aria_label="orbitmedia logo">
+                    <PictureInternal
+                        alternative_text="orbitmedia logo"
+                        source="/logo/om-logo.png"
                     />
                 </Link>
             </div>
@@ -33,7 +38,7 @@ header_data = header_data.sort((a, b) => a.data.order - b.data.order)
                 <ul class="flex md:gap-10 pt-4">
                     {
 
-                        header_data.map( ( item, index ) => {
+                        header_data.map( ( item ) => {
 
                             return (
                                 <li class="flex-col text-lg text-white font-proxima_nova_condensed font-semibold flex items-center relative group cursor-pointer">
@@ -42,11 +47,12 @@ header_data = header_data.sort((a, b) => a.data.order - b.data.order)
 
                                         item.data.has_dropdown &&
                                         <div>
-                                            <img
-                                                src="/icons/arrow-down.svg"
-                                                class="w-2 aspect-square"
-                                                alt="dropdown menu icon"
-                                            />
+                                            <div class="w-2 aspect-square">
+                                                <PictureInternalContain
+                                                    alternative_text="dropdown menu icon"
+                                                    source="/icons/arrow-down.svg"
+                                                />
+                                            </div>
                                             <div class="hidden group-hover:block group-hover:flex-col absolute p-2 rounded bg-white -left-32 z-10 top-9 w-[300px] gap-2 shadow transition-all duration-300 delay-1000">
                                                 <div class="flex flex-col">
                                                     {
@@ -55,22 +61,20 @@ header_data = header_data.sort((a, b) => a.data.order - b.data.order)
 
                                                             return(
                                                                 <div class={` ${ sub_item_index < 2 ? "mb-4 p-6" : "px-6" } ${ sub_item_index === 2 ? "pt-4" : "" } ${ sub_item_index === 7 ? "pb-4" : "" } bg-om_zinc space-y-2`}>
-                                                                    <a
-                                                                        href={ sub_item.slug }
-                                                                        class=""
+                                                                    <Link
                                                                         aria-label={ "explore" + sub_item.title }
+                                                                        href={ sub_item.slug }
                                                                     >
                                                                         <div class="flex items-center">
                                                                             <p class={` ${ sub_item_index < 2 ? "text-2xl font-extrabold" : "text-lg font-semibold" } text-om_black hover:text-om_orange font-proxima_nova_condensed`}>{ sub_item.title }</p>
                                                                             <div class="w-4 aspect-square">
-                                                                                <img
-                                                                                    src="/icons/greater-than-orange.svg"
-                                                                                    alt=""
-                                                                                    class="w-4 aspect-square"
+                                                                                <PictureInternalContain
+                                                                                    alternative_text="orange greater than icon"
+                                                                                    source="/icons/greater-than-orange.svg"
                                                                                 />
                                                                             </div>
                                                                         </div>
-                                                                    </a>
+                                                                    </Link>
                                                                     <p class="font-light text-om_black leading-tight">{ sub_item.description }</p>
                                                                 </div>
                                                             )

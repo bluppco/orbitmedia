@@ -1,14 +1,23 @@
 ---
-import { marked } from "marked"
 
 // IMPORTS ASTRO LAYOUTS
-import Container from "../../../layouts/container/index.astro"
+import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
-import ContainPicture from "@/atoms/picture/contain/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
 
-const { data } = Astro.props
+// IMPORTS MARKED
+import { marked } from "marked"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
 
 const description = marked.parse( data.description )
 ---
@@ -16,10 +25,12 @@ const description = marked.parse( data.description )
     <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-20 py-12 md:py-32 h-fit">
         <div class="md:col-span-3 flex items-center">
             <div class="w-full aspect-[3/2]">
-                <ContainPicture
-                    src={ data.cover }
-                    alt={ data.title }
+                <PictureContain
+                    alternative_text={ data.title }
+                    CDN={ CDN }
                     image_width="800"
+                    PROJECT={ PROJECT }
+                    source={ data.cover }
                 />
             </div>
         </div>

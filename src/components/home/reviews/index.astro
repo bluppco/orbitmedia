@@ -1,14 +1,24 @@
 ---
+
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingCenter from "@/atoms/heading/center/index.astro"
-import ContainPicture from "@/atoms/picture/contain/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
 
-const { data } = Astro.props
+// GET ASTRO PROPS
+const {
 
-const images = data.images.sort(( a,b ) => a.order -b.order )
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+
+// SORTS IMAGES ARRAY
+const images = data.images.sort(( a,b ) => a.order - b.order )
+
 ---
 <section class="pt-12 md:pt-0">
     <Container>
@@ -22,10 +32,12 @@ const images = data.images.sort(( a,b ) => a.order -b.order )
                         return(
                             <div class="bg-white p-16">
                                 <div class="w-full aspect-[3/1]">
-                                    <ContainPicture
-                                        src={ value.file }
-                                        alt=""
+                                    <PictureContain
+                                        alternative_text=""
+                                        CDN={ CDN }
                                         image_width="500"
+                                        PROJECT={ PROJECT }
+                                        source={ value.file }
                                     />
                                 </div>
                             </div>

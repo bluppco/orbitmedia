@@ -1,8 +1,17 @@
 ---
+
 // IMPORTS ASTRO COMPONENTS
 import TestimonialCard from "@/components/common/testimonial-card/index.astro"
 
-const { data } = Astro.props
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+
 ---
 <section class="pb-12 md:pb-32">
     {
@@ -13,16 +22,18 @@ const { data } = Astro.props
 
             return(
                 <TestimonialCard
-                    title={ value.title }
-                    description={ value.description }
-                    src={ value.cover }
-                    alt={ value.title }
-                    client_src={ value.client_headshot }
-                    client_alt={ value.client_name }
-                    client_name={ value.client_name }
-                    client_designation={ value.client_designation }
-                    client_company={ value.client_company }
+                    alternative_text={ value.title }
                     background_zinc={ true }
+                    CDN={ CDN }
+                    client_alternative_text={ value.client_name }
+                    client_company={ value.client_company }
+                    client_designation={ value.client_designation }
+                    client_name={ value.client_name }
+                    client_source={ value.client_headshot }
+                    description={ value.description }
+                    PROJECT={ PROJECT }
+                    source={ value.cover }
+                    title={ value.title }
                 />
             )
         }

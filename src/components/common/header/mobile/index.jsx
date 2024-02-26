@@ -1,11 +1,15 @@
-import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
-
 // IMPORTS COMPONENTS
-import Li from "./li/index"
+import ListItem from "@/atoms/header/mobile/list-item/index.jsx"
 
 // IMPORTS ATOMS
-import Link from "@/atoms/links/jsx/index"
+import Link from "@/atoms/links/jsx/index.jsx"
+import PictureInternalContain from "@/atoms/picture/internal/jsx/contain/index.jsx"
+
+// IMPORTS FRAMER MOTION
+import { motion, AnimatePresence } from "framer-motion"
+
+// IMPORTS REACT
+import { useState } from "react"
 
 const MobileHeader = () => {
 
@@ -14,12 +18,11 @@ const MobileHeader = () => {
     return (
         <header className="bg-om_carbon_black md:hidden px-6 py-6 z-20 w-full">
             <div className="flex justify-between items-center z-20">
-                <Link href="/">
+                <Link href="/" aria_label="orbitmedia logo">
                     <div className="w-10 aspect-square">
-                        <img
-                            src="/logo/mobile-header-logo.png"
-                            alt="logo"
-                            className="w-10 aspect-square"
+                        <PictureInternalContain
+                            alternative_text="orbitmedia logo"
+                            source="/logo/mobile-header-logo.png"
                         />
                     </div>
                 </Link>
@@ -27,19 +30,23 @@ const MobileHeader = () => {
                     {
 
                         isOpen &&
-                        <img
-                            src="/icons/close.svg"
-                            className="w-6 aspect-square"
-                        />
+                        <div className="w-6 aspect-square">
+                            <PictureInternalContain
+                                alternative_text="close icon"
+                                source="/icons/close.svg"
+                            />
+                        </div>
 
                     }
                     {
 
                         !isOpen &&
-                        <img
-                            src="/icons/menu.svg"
-                            className="w-6 aspect-square"
-                        />
+                        <div className="w-6 aspect-square">
+                            <PictureInternalContain
+                                alternative_text="menu icon"
+                                source="/icons/menu.svg"
+                            />
+                        </div>
 
                     }
                 </div>
@@ -61,12 +68,12 @@ const MobileHeader = () => {
                     >
                         <div className="flex flex-col gap-1 items-center justify-center h-full z-10">
                             <ul className="flex flex-col gap-8">
-                                <Li>Web Design & Development</Li>
-                                <Li>Website Optimization</Li>
-                                <Li>Portfolio</Li>
-                                <Li>Blog</Li>
-                                <Li>About</Li>
-                                <Li>Contact</Li>
+                                <ListItem>Web Design & Development</ListItem>
+                                <ListItem>Website Optimization</ListItem>
+                                <ListItem>Portfolio</ListItem>
+                                <ListItem>Blog</ListItem>
+                                <ListItem>About</ListItem>
+                                <ListItem>Contact</ListItem>
                             </ul>
                         </div>
                     </motion.div>

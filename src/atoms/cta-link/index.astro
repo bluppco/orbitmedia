@@ -1,15 +1,25 @@
 ---
-const { href } = Astro.props
+
+// IMPORTS ASTRO ATOMS
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    aria_label,
+    href
+
+} = Astro.props
+
 ---
-<a href={ href } class="flex gap-1 items-center cursor-pointer">
+<a href={ href } aria-label={ aria_label } class="flex gap-1 items-center cursor-pointer">
     <p class="text-om_red hover:text-black font-proxima_nova_condensed font-extrabold text-xl">
         <slot/>
     </p>
     <div class="w-4 aspect-square">
-        <img
-            src="/icons/greater-than.svg"
-            alt=""
-            class="w-4 aspect-square"
+        <PictureInternalContain
+            alternative_text="greater than icon"
+            source="/icons/greater-than.svg"
         />
     </div>
 </a>

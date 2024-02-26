@@ -1,9 +1,14 @@
+---
+
+// IMPORTS ASTRO ATOMS
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
+
+---
 <div class="flex justify-center md:flex-none">
     <div class="w-28 md:w-full h-40">
-        <img
-            src="/images/footerLogo-Bcorp@2x.png"
-            alt=""
-            class="w-full h-full"
+        <PictureInternalContain
+            alternative_text="bcorp footer logo"
+            source="/images/footerLogo-Bcorp@2x.png"
         />
     </div>
 </div>

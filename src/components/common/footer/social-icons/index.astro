@@ -1,36 +1,38 @@
 ---
-// IMPORT ASTRO COMPONENTS
-import SocialIcon from "./image/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import SocialIcon from "@/components/common/footer/social-icons/image/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import Link from "@/atoms/links/target/blank/index.astro"
+
 ---
 <div class="flex items-center gap-4">
     <Link href="https://twitter.com/orbiteers">
         <div class="w-5 aspect-square">
             <img
-                src="/icons/x.svg"
-                alt=""
+                alt="x icon"
                 class="w-5 aspect-square"
+                src="/icons/x.svg"
             />
         </div>
     </Link>
     <SocialIcon
-        src="/icons/facebook.svg"
-        alt=""
-        aria_label=""
+        alternative_text="facebook icon"
+        aria_label="facebook icon"
         href="https://www.facebook.com/orbitmediastudios"
+        source="/icons/facebook.svg"
     />
     <SocialIcon
-        src="/icons/linkedin.svg"
-        alt=""
-        aria_label=""
+        alternative_text="linkedin icon"
+        aria_label="linkedin icon"
         href="https://www.linkedin.com/company/orbit-media-studios-inc./"
+        source="/icons/linkedin.svg"
     />
     <SocialIcon
-        src="/icons/youtube.svg"
-        alt=""
-        aria_label=""
+        alternative_text="youtube icon"
+        aria_label="youtube icon"
         href="https://www.youtube.com/Orbitmedia"
+        source="/icons/youtube.svg"
     />
 </div>

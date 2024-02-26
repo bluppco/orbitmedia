@@ -1,11 +1,18 @@
 ---
-// IMPORT ASTRO COMPONENTS
+
+// IMPORTS ASTRO COMPONENTS
 import FooterHeading from "@/components/common/footer/heading/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import Link from "@/atoms/links/index.astro"
 
-const { title, data } = Astro.props
+const {
+
+    data,
+    title
+
+} = Astro.props
+
 ---
 <div class="flex flex-col items-center md:items-start gap-4">
     <FooterHeading>{ title }</FooterHeading>
@@ -16,8 +23,8 @@ const { title, data } = Astro.props
 
                 return (
                     <li class="text-center md:text-left font-proxima_nova text-lg text-white">
-                        <Link href={ item.data.link } aria_label="">
-                            <p>{ item.data.title }</p>
+                        <Link href={ item.data.link } aria_label={ item.data.title }>
+                            { item.data.title }
                         </Link>
                     </li>
 

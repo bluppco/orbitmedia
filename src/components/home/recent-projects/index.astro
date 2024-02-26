@@ -1,15 +1,25 @@
 ---
+
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwoCenter from "@/atoms/headings/two/center/index.astro"
 import Link from "@/atoms/links/index.astro"
-import ContainPicture from "@/atoms/picture/contain/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
 
-const { data } = Astro.props
+// GET ASTRO PROPS
+const {
 
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+
+// SORTS IMAGES ARRAY
 const images = data.images.sort( ( a,b ) => a.order - b.order )
+
 ---
 <Container>
     <HeadingTwoCenter>{ data.title }</HeadingTwoCenter>
@@ -21,10 +31,12 @@ const images = data.images.sort( ( a,b ) => a.order - b.order )
                 return (
                     // <Link href={ "/portfolio/" + item.slug } aria_label="">
                         <div class="w-full aspect-square">
-                            <ContainPicture
-                                src={ item.file }
-                                alt={ "portfolio" + item.name }
+                            <PictureContain
+                                alternative_text={ "portfolio" + item.name }
+                                CDN={ CDN }
                                 image_width="240"
+                                PROJECT={ PROJECT }
+                                source={ item.file }
                             />
                         </div>
                     // </Link>

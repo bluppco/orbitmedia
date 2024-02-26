@@ -1,43 +1,54 @@
 ---
+
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import DataCard from "./data-card/index.astro"
+import DataCard from "@/components/home/data-driven-company/data-card/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 import Paragraph from "@/atoms/paragraph/regular/index.astro"
 
+// GET ASTRO PROPS
 const {
 
-    data,
+    CDN,
     data_and_analytics,
+    data,
+    interview_and_investigate,
     keyword_research,
-    interview_and_investigate
+    PROJECT
 
 } = Astro.props
+
 ---
 <Container>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
         <div class="space-y-8 order-last md:order-none">
             <DataCard
-                title={ data_and_analytics.title }
+                alternative_text={ data_and_analytics.title }
+                CDN={ CDN }
                 description={ data_and_analytics.description }
-                src={ data_and_analytics.cover }
-                alt={ data_and_analytics.title }
+                PROJECT={ PROJECT }
+                source={ data_and_analytics.cover }
+                title={ data_and_analytics.title }
             />
             <DataCard
-                title={ keyword_research.title }
+                alternative_text={ keyword_research.title }
+                CDN={ CDN }
                 description={ keyword_research.description }
-                src={ keyword_research.cover }
-                alt={ keyword_research.title }
+                PROJECT={ PROJECT }
+                source={ keyword_research.cover }
+                title={ keyword_research.title }
             />
             <DataCard
-                title={ interview_and_investigate.title }
+                alternative_text={ interview_and_investigate.title }
+                CDN={ CDN }
                 description={ interview_and_investigate.description }
-                src={ interview_and_investigate.cover }
-                alt={ interview_and_investigate.title }
+                PROJECT={ PROJECT }
+                source={ interview_and_investigate.cover }
+                title={ interview_and_investigate.title }
             />
         </div>
         <div class="flex flex-col justify-center gap-6">

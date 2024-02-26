@@ -1,17 +1,19 @@
 ---
-// IMPORT ASTRO LAYOUTS
+
+// IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
-// IMPORT ASTRO COMPONENTS
-import Li from "./li/index.astro"
+// IMPORTS ASTRO ATOMS
+import ListItem from "@/atoms/footer/row/two/list-item/index.astro"
+
 ---
 <section class="bg-om_black py-12 md:py-4">
     <Container>
         <div class="flex flex-col md:flex-row md:items-center md:justify-center gap-4 md:gap-6">
-            <Li>Privacy Policy</Li>
-            <Li>Sitemap</Li>
-            <Li>Accessibility</Li>
-            <Li>Support</Li>
+            <ListItem href="/privacy-policy" aria_label="Explore Privacy Policy">Privacy Policy</ListItem>
+            <ListItem href="/sitemap" aria_label="Explore Sitemap">Sitemap</ListItem>
+            <ListItem href="/accessibility" aria_label="Explore Accessibility">Accessibility</ListItem>
+            <ListItem href="/contact/support" aria_label="Explore Support">Support</ListItem>
             <p class="text-center md:text-left text-white text-sm font-proxima_nova font-light">&copy; { new Date().getFullYear() } Orbit Media Studios</p>
         </div>
     </Container>

@@ -1,13 +1,15 @@
 ---
+
 // IMPORTS ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
-const runtime = Astro.locals.runtime
-const env = runtime.env.ENVIRONMENT
+// GET ASTRO PROPS
+const { ENVIRONMENT } = Astro.props
+
 ---
 {
 
-    env === "staging" &&
+    ENVIRONMENT === "staging" &&
     <section class="bg-om_orange h-16 md:h-10">
         <Container>
             <div class="flex items-center justify-center h-full">

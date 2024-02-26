@@ -1,25 +1,28 @@
 ---
-import { marked } from "marked"
-
-// IMPORTS CONSTANTS
-import { CDN_LINK, IMAGE_QUALITY } from "@/constants/image"
 
 // IMPORTS ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
-import ContainPicture from "@/atoms/picture/contain/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
 
+// IMPORTS MARKED
+import { marked } from "marked"
+
+// GET ASTRO PROPS
 const {
 
-    sub_title,
-    title,
+    alternative_text,
+    CDN,
     description,
-    src,
-    alt
+    PROJECT,
+    source,
+    sub_title,
+    title
 
 } = Astro.props
 
 const subtitle = marked.parse( sub_title )
 const html = marked.parse( description )
+
 ---
 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-20 h-fit">
     <div class="flex flex-col justify-center gap-6 md:col-span-2 order-last md:order-none">
@@ -33,10 +36,12 @@ const html = marked.parse( description )
     </div>
     <div class="md:col-span-3 space-y-2 flex items-center">
         <div class="w-full aspect-square">
-            <ContainPicture
-                src={ src }
-                alt={ alt }
+            <PictureContain
+                alternative_text={ alternative_text }
+                CDN={ CDN }
                 image_width="1200"
+                PROJECT={ PROJECT }
+                source={ source }
             />
         </div>
     </div>

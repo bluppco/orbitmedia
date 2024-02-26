@@ -1,12 +1,17 @@
+---
+
+// IMPORTS ASTRO ATOMS
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
+
+---
 <button class="bg-black h-12 px-6 rounded flex gap-2 items-center">
     <p class="text-white text-xl font-proxima_nova_condensed font-bold">
         <slot/>
     </p>
     <div class="w-4 aspect-square">
-        <img
-            src="/icons/arrow.svg"
-            alt=""
-            class="w-4 aspect-square"
+        <PictureInternalContain
+            alternative_text="arrow icon"
+            source="/icons/arrow.svg"
         />
     </div>
 </button>
