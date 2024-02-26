@@ -1,0 +1,123 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import PictureContain from "@/atoms/picture/contain/index.astro"
+import HeadingTwoSmall from "@/atoms/headings/two/small/index.astro"
+import Paragraph from "@/atoms/paragraph/regular/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    background_zinc,
+    CDN,
+    client_alternative_text,
+    client_company,
+    client_designation,
+    client_name,
+    client_source,
+    description,
+    image_aspect_video,
+    PROJECT,
+    source,
+    title
+
+} = Astro.props
+
+---
+<Container>
+    <section class={` ${ background_zinc ? "bg-om_zinc" : "bg-white" } p-8 md:p-20 grid grid-cols-1 md:grid-cols-3 gap-40 `}>
+        <div class="md:col-span-2 space-y-14 relative">
+            <div class="space-y-4 md:space-y-6">
+                <HeadingTwoSmall>{ title }</HeadingTwoSmall>
+                <Paragraph>{ description }</Paragraph>
+            </div>
+            <div class="flex gap-4 items-center justify-between">
+                <div class="space-y-2">
+                    {
+
+                        client_source.map( ( value, index ) => {
+
+                            if ( index < 1 ) {
+
+                            return(
+                                <div class="w-16 aspect-square rounded-full overflow-hidden">
+                                    <Picture
+                                        alternative_text={ client_alternative_text }
+                                        CDN={ CDN }
+                                        image_width="120"
+                                        PROJECT={ PROJECT }
+                                        source={ value.file }
+                                    />
+                                </div>
+                            )
+                        }
+
+                        })
+
+                    }
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-bold text-sm md:text-lg font-proxima_nova">{ client_name }</p>
+                            <div class="flex flex-col md:flex-row md:items-center gap-1">
+                                <span class="text-sm md:text-lg font-proxima_nova">{ client_designation },</span>
+                                <div class="flex items-center">
+                                    {
+
+                                        client_company === "Vienna Beef" ?
+
+                                        <span class="text-sm md:text-lg font-proxima_nova text-om_red hover:cursor-pointer">{ client_company }</span>
+                                        :
+                                        <span class="text-sm md:text-lg font-proxima_nova font-medium hover:cursor-pointer">{ client_company }</span>
+
+                                    }
+                                    {
+
+                                        client_company === "Vienna Beef" &&
+
+                                        <div class="w-4 aspect-square">
+                                            <PictureInternalContain
+                                                alternative_text="arrow top right"
+                                                source="/icons/arrow-top-right.svg"
+                                            />
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class={` ${ image_aspect_video ? "aspect-video" : "aspect-square" } md:hidden w-32`}>
+                    <PictureContain
+                        alternative_text={ alternative_text }
+                        CDN={ CDN }
+                        image_width="200"
+                        PROJECT={ PROJECT }
+                        source={ source }
+                    />
+                </div>
+            </div>
+            <div class="w-12 md:w-16 aspect-auto absolute -left-8 md:-left-16 -top-20">
+                <PictureInternalContain
+                    alternative_text="quote icon"
+                    source="/images/quote.png"
+                />
+            </div>
+        </div>
+        <div class={` ${ image_aspect_video ? "aspect-video" : "aspect-square" } hidden md:block w-60`}>
+            <PictureContain
+                alternative_text={ alternative_text }
+                CDN={ CDN }
+                image_width="200"
+                PROJECT={ PROJECT }
+                source={ source }
+            />
+        </div>
+    </section>
+</Container>

@@ -1,0 +1,65 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import DataCard from "@/components/home/data-driven-company/data-card/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+import Paragraph from "@/atoms/paragraph/regular/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    data_and_analytics,
+    data,
+    interview_and_investigate,
+    keyword_research,
+    PROJECT
+
+} = Astro.props
+
+---
+<Container>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+        <div class="space-y-8 order-last md:order-none">
+            <DataCard
+                alternative_text={ data_and_analytics.title }
+                CDN={ CDN }
+                description={ data_and_analytics.description }
+                PROJECT={ PROJECT }
+                source={ data_and_analytics.cover }
+                title={ data_and_analytics.title }
+            />
+            <DataCard
+                alternative_text={ keyword_research.title }
+                CDN={ CDN }
+                description={ keyword_research.description }
+                PROJECT={ PROJECT }
+                source={ keyword_research.cover }
+                title={ keyword_research.title }
+            />
+            <DataCard
+                alternative_text={ interview_and_investigate.title }
+                CDN={ CDN }
+                description={ interview_and_investigate.description }
+                PROJECT={ PROJECT }
+                source={ interview_and_investigate.cover }
+                title={ interview_and_investigate.title }
+            />
+        </div>
+        <div class="flex flex-col justify-center gap-6">
+            <HeadingTwo>{ data.heading }</HeadingTwo>
+            <div class="space-y-1">
+                <div class="h-[2px] w-14 bg-om_red"></div>
+                <div class="h-[2px] w-14 bg-om_red"></div>
+            </div>
+            <p class="text-2xl font-bold font-proxima_nova">{ data.title }</p>
+            <p class="text-xl font-proxima_nova">{ data.sub_title }</p>
+            <Paragraph>{ data.description }</Paragraph>
+        </div>
+    </section>
+</Container>

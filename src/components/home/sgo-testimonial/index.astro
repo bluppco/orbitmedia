@@ -1,0 +1,43 @@
+---
+
+// IMPORTS ASTRO COMPONENTS
+import TestimonialCard from "@/components/common/testimonial-card/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+
+---
+<section>
+    {
+
+        data.map( ( value, index ) => {
+
+            if (index === 1) {
+
+            return(
+                <TestimonialCard
+                    alternative_text={ value.title }
+                    CDN={ CDN }
+                    client_alternative_text={ value.client_name }
+                    client_company={ value.client_company }
+                    client_designation={ value.client_designation }
+                    client_name={ value.client_name }
+                    client_source={ value.client_headshot }
+                    description={ value.description }
+                    PROJECT={ PROJECT }
+                    source={ value.cover }
+                    title={ value.title }
+                />
+            )
+        }
+
+        })
+
+    }
+</section>

@@ -1,0 +1,40 @@
+---
+
+// IMPORTS ASTRO COMPONENTS
+import FooterHeading from "@/components/common/footer/heading/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    data,
+    title
+
+} = Astro.props
+
+---
+<div class="flex flex-col md:gap-4">
+    <FooterHeading>{ title }</FooterHeading>
+    <ul class="space-y-1">
+        {
+
+            data.map( ( item ) => {
+
+                return (
+                    <li class="text-center md:text-left font-proxima_nova text-lg text-white">
+                        <Link href={ item.data.link } aria_label={ item.data.title }>
+                            { item.data.title }
+                        </Link>
+                    </li>
+
+                )
+
+            })
+
+        }
+        <li class="text-center md:text-left text-lg text-om_orange hover:text-white font-bold font-proxima_nova transition-all duration-200 cursor-pointer">(773) 348-4581</li>
+        <li class="text-center md:text-left text-lg text-om_orange hover:text-white font-bold font-proxima_nova transition-all duration-200 cursor-pointer pt-4">Message Us ›</li>
+    </ul>
+</div>

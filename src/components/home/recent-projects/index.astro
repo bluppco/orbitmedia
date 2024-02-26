@@ -1,0 +1,49 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwoCenter from "@/atoms/headings/two/center/index.astro"
+import Link from "@/atoms/links/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+
+// SORTS IMAGES ARRAY
+const images = data.images.sort( ( a,b ) => a.order - b.order )
+
+---
+<Container>
+    <HeadingTwoCenter>{ data.title }</HeadingTwoCenter>
+    <section class="grid grid-cols-2 md:grid-cols-8 gap-x-10 gap-y-2 h-fit">
+        {
+
+            images.map( ( item ) => {
+
+                return (
+                    // <Link href={ "/portfolio/" + item.slug } aria_label="">
+                        <div class="w-full aspect-square">
+                            <PictureContain
+                                alternative_text={ "portfolio" + item.name }
+                                CDN={ CDN }
+                                image_width="240"
+                                PROJECT={ PROJECT }
+                                source={ item.file }
+                            />
+                        </div>
+                    // </Link>
+                )
+
+            })
+
+        }
+    </section>
+</Container>
