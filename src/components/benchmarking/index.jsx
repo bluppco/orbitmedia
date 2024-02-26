@@ -15,7 +15,7 @@ const BenchmarkingJSX = ( props ) => {
 
     const formatNumber = ( number ) => {
 
-        if( number < 100)
+        if( number < 1000)
             return (number).toFixed(2) + " MB"
         else if( number/1000 < 1000)
             return (number/1000).toFixed(2) + " GB"
@@ -103,7 +103,6 @@ const BenchmarkingJSX = ( props ) => {
 
                         data.bandwidth.map( ( value, index ) => {
 
-                            console.log( value )
                             return (
                                 <TableRow className={ value.type === "Total" ? "font-semibold" : "" } key={ "bandwidth-saved-" + index }>
                                     <TableCell className="font-semibold">{ value.hits_text }</TableCell>

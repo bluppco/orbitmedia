@@ -8,12 +8,17 @@ import lottie from "astro-integration-lottie";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
-  adapter: cloudflare({
-    runtime: {
-      mode: 'local',
-      type: 'pages'
-    }
-  }),
-  integrations: [mdx(), tailwind({applyBaseStyles: false}), react(), lottie()]
+	output: "server",
+	adapter: cloudflare({
+		runtime: {
+			mode: 'local',
+			type: 'pages'
+		}
+	}),
+	image: {
+		service: {
+			entrypoint: "astro/assets/services/noop"
+		}
+	},
+	integrations: [mdx(), tailwind({ applyBaseStyles: false }), react(), lottie()]
 });

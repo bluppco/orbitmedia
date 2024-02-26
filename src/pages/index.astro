@@ -1,75 +1,51 @@
 ---
-import { homeAPI } from "../api/home/index"
 
+// RUNTIME
 const runtime = Astro.locals.runtime;
-const data = await homeAPI( runtime.env.ENVIRONMENT )
+const {
 
-const { home_data, team, testimonials, meta_tags } = data
+	CDN,
+	ENDPOINT,
+	ENVIRONMENT,
+	PROJECT
+
+} = runtime.env
+
+// API
+import { homeAPI } from "@/api/home/index"
+
+const data = await homeAPI( ENDPOINT )
+
+const {
+
+	home_data,
+	meta_tags ,
+	team,
+	testimonials
+
+} = data
+
+
+// IMPORTS ASTRO LAYOUTS
+import Layout from "@/layouts/layout/index.astro"
 
 // IMPORTS ASTRO COMPONENTS
-import Layout from "../layouts/Layout.astro"
-import RecentProjects from "../components/home/RecentProjects.astro"
-import MeetOurTeam from "../components/home/MeetOurTeam.astro"
-import HeaderBanner from "../components/home/HeaderBanner.astro"
-import Header from "../components/common/header/Header.astro"
-import Hero from "../components/home/Hero.astro"
-import CofounderTalk from "../components/home/CofounderTalk.astro"
-import PartnerWithUs from "../components/home/PartnerWithUs.astro"
-import Reviews from "../components/home/Reviews.astro"
-import Awards from "../components/home/Awards.astro"
-import STIFounderTestimonial from "../components/home/STIFounderTestimonial.astro"
-import ViennaBeefTestimonial from "../components/home/ViennaBeefTestimonial.astro"
-import OptimizeWebsite from "../components/home/OptimizeWebsite.astro"
-import DataDrivenCompany from "../components/home/DataDrivenCompany.astro"
-import SgoTestimonials from "../components/home/SgoTestimonials.astro"
-import UpdateMessaging from "../components/home/UpdateMessaging.astro"
-import EditAnyPage from "../components/home/EditAnyPage.astro"
-import WebsiteDesign from "../components/home/WebsiteDesign.astro"
-import NotSure from "../components/home/NotSure.astro"
-import TRLSTestimonial from "../components/home/TRLSTestimonial.astro"
-import ReachOutToChris from "../components/home/ReachOutToChris.astro"
-import Footer from "../components/common/footer/Footer.astro"
+import Home from "@/components/home/index.astro"
+
 ---
 <Layout
-	title={ meta_tags.title }
+	CDN={ CDN }
 	description={ meta_tags.description }
 	image={ meta_tags.cover }
+	PROJECT={ PROJECT }
+	title={ meta_tags.title }
 >
-	<section class="selection:bg-om_red selection:text-white">
-		<section class="md:h-screen 2xl:h-[800px] md:max-h-screen">
-			<HeaderBanner />
-			<Header />
-			<Hero data={ home_data.hero } />
-		</section>
-		<section class="flex flex-col gap-12 md:gap-32 py-12 md:py-32 bg-om_zinc">
-			<RecentProjects data={ home_data.recent_projects }/>
-			<CofounderTalk data={ home_data.cofounder_talk } />
-			<PartnerWithUs data={ home_data.partner_with_us } />
-			<Reviews data={ home_data.reviews } />
-			<Awards data={ home_data.awards } />
-			<STIFounderTestimonial data={ home_data.founder_of_sti } />
-		</section>
-		<MeetOurTeam team={ team } data={ home_data.meet_our_team } />
-
-		<ViennaBeefTestimonial data={ testimonials } />
-		<section class="flex flex-col gap-12 md:gap-32 py-12 md:py-32 bg-om_zinc">
-			<OptimizeWebsite data={ home_data.optimize_website } />
-			<DataDrivenCompany
-				data={ home_data.data_driven_company }
-				data_and_analytics={ home_data.data_and_analytics }
-				keyword_research={ home_data.keyword_research }
-				interview_and_investigate={ home_data.interview_and_investigate }
-			/>
-			<SgoTestimonials data={ testimonials } />
-		</section>
-		<UpdateMessaging data={ home_data.update_messaging } />
-		<EditAnyPage data={ home_data.edit_any_page } />
-		<section class="flex flex-col gap-12 md:gap-32 py-12 md:py-32 bg-om_zinc">
-			<WebsiteDesign data={ home_data.website_design } />
-			<NotSure data={ home_data.not_sure } />
-			<TRLSTestimonial data={ testimonials } />
-		</section>
-	</section>
-	<ReachOutToChris data={ home_data.reach_out_to_chris } />
-	<Footer />
+	<Home
+		CDN={ CDN }
+		ENVIRONMENT={ ENVIRONMENT }
+		home_data={ home_data }
+		PROJECT={ PROJECT }
+		team={ team }
+		testimonials={ testimonials }
+	/>
 </Layout>
