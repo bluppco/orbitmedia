@@ -1,0 +1,48 @@
+---
+
+// IMPORTS ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+import Heading from "@/atoms/heading/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
+
+// GET ASTRO PROPS
+const {
+
+    description,
+    heading,
+    source,
+    title,
+    video_text
+
+} = Astro.props
+
+const html = marked.parse( description )
+
+---
+<div class="grid md:grid-cols-5 gap-8 md:gap-20">
+    <div class="flex flex-col justify-center gap-4 md:col-span-2 order-last md:order-none">
+        <Heading>{ heading }</Heading>
+        <HeadingTwo>{ title }</HeadingTwo>
+        <div class="space-y-1">
+            <div class="h-[2px] w-14 bg-om_red"></div>
+            <div class="h-[2px] w-14 bg-om_red"></div>
+        </div>
+        <section set:html={ html } class="markdown largetext" />
+    </div>
+    <div class="md:col-span-3 flex flex-col gap-2">
+        <div class="h-72 md:h-[400px] w-full overflow-hidden rounded">
+            <iframe
+                allow="autoplay; fullscreen; picture-in-picture"
+                height="100%"
+                src={ source }
+                width="100%"
+            >
+            </iframe>
+        </div>
+        <div class="pl-3">
+            <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>
+        </div>
+    </div>
+</div>

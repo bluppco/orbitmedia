@@ -1,0 +1,17 @@
+---
+
+// IMPORTS ASTRO ATOMS
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
+
+---
+<button class="flex gap-1 items-center cursor-pointer">
+    <p class="text-om_red hover:text-black font-proxima_nova_condensed font-extrabold text-xl">
+        <slot/>
+    </p>
+    <div class="w-4 aspect-square">
+        <PictureInternalContain
+            alternative_text="greater than icon"
+            source="/icons/greater-than.svg"
+        />
+    </div>
+</button>

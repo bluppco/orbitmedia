@@ -1,0 +1,99 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS JSX COMPONENTS
+import MobileHeader from "@/components/common/header/mobile/index.jsx"
+
+// IMPORTS ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import PictureInternal from "@/atoms/picture/internal/index.astro"
+import PictureInternalContain from "@/atoms/picture/internal/contain/index.astro"
+
+// IMPORTS HEADER COLLECTION
+import { getCollection } from "astro:content"
+
+let header_data = await getCollection("header")
+header_data = header_data.sort((a, b) => a.data.order - b.data.order)
+
+// GET ASTRO PROPS
+const { ENVIRONMENT } = Astro.props
+
+---
+<header class={`${ ENVIRONMENT === "staging" ? "mt-0" : "" } bg-om_carbon_black relative z-20 h-20 hidden md:block`}>
+    <Container>
+        <section class="flex justify-between items-center h-full">
+            <div class="w-60 aspect[3/1]">
+                <Link href="/" aria_label="orbitmedia logo">
+                    <PictureInternal
+                        alternative_text="orbitmedia logo"
+                        source="/logo/om-logo.png"
+                    />
+                </Link>
+            </div>
+            <nav>
+                <ul class="flex md:gap-10 pt-4">
+                    {
+
+                        header_data.map( ( item ) => {
+
+                            return (
+                                <li class="flex-col text-lg text-white font-proxima_nova_condensed font-semibold flex items-center relative group cursor-pointer">
+                                    <a href={ "/" + item.data.slug } class="group-hover:text-om_orange transition-all duration-300" aria-label={"explore " + item.data.title }>{ item.data.title }</a>
+                                    {
+
+                                        item.data.has_dropdown &&
+                                        <div>
+                                            <div class="w-2 aspect-square">
+                                                <PictureInternalContain
+                                                    alternative_text="dropdown menu icon"
+                                                    source="/icons/arrow-down.svg"
+                                                />
+                                            </div>
+                                            <div class="invisible group-hover:visible opacity-0 top-12 -z-50 group-hover:z-10 group-hover:opacity-100 group-hover:top-9 group-hover:flex-col absolute p-2 rounded bg-white -left-32 w-[300px] gap-2 shadow transition-all duration-300 delay-300">
+                                                <div class="flex flex-col">
+                                                    {
+
+                                                        item.data.items.map( ( sub_item, sub_item_index ) => {
+
+                                                            return(
+                                                                <div class={` ${ sub_item_index < 2 ? "mb-4 p-6" : "px-6" } ${ sub_item_index === 2 ? "pt-4" : "" } ${ sub_item_index === 7 ? "pb-4" : "" } bg-om_zinc space-y-2`}>
+                                                                    <Link
+                                                                        aria-label={ "explore" + sub_item.title }
+                                                                        href={ sub_item.slug }
+                                                                    >
+                                                                        <div class="flex items-center">
+                                                                            <p class={` ${ sub_item_index < 2 ? "text-2xl font-extrabold" : "text-lg font-semibold" } text-om_black hover:text-om_orange font-proxima_nova_condensed`}>{ sub_item.title }</p>
+                                                                            <div class="w-4 aspect-square">
+                                                                                <PictureInternalContain
+                                                                                    alternative_text="orange greater than icon"
+                                                                                    source="/icons/greater-than-orange.svg"
+                                                                                />
+                                                                            </div>
+                                                                        </div>
+                                                                    </Link>
+                                                                    <p class="font-light text-om_black leading-tight">{ sub_item.description }</p>
+                                                                </div>
+                                                            )
+
+                                                        })
+
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                                </li>
+                            )
+
+                        })
+
+                    }
+                </ul>
+            </nav>
+        </section>
+    </Container>
+</header>
+<MobileHeader client:load />

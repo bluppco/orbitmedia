@@ -1,0 +1,137 @@
+---
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    ENVIRONMENT,
+	home_data,
+    PROJECT,
+	team,
+	testimonials,
+
+} = Astro.props
+
+// IMPORTS ASTRO COMPONENTS
+import Awards from "@/components/home/awards/index.astro"
+import CofounderTalk from "@/components/home/cofounder-talk/index.astro"
+import DataDrivenCompany from "@/components/home/data-driven-company/index.astro"
+import EditAnyPage from "@/components/home/edit-any-page/index.astro"
+import Footer from "@/components/common/footer/index.astro"
+import Header from "@/components/common/header/index.astro"
+import HeaderBanner from "@/components/common/header-banner/index.astro"
+import Hero from "@/components/home/hero/index.astro"
+import MeetOurTeam from "@/components/home/meet-our-team/index.astro"
+import NotSure from "@/components/home/not-sure/index.astro"
+import OptimizeWebsite from "@/components/home/optimize-website/index.astro"
+import PartnerWithUs from "@/components/home/partner-with-us/index.astro"
+import ReachOutToChris from "@/components/home/reach-out-to-chris/index.astro"
+import RecentProjects from "@/components/home/recent-projects/index.astro"
+import Reviews from "@/components/home/reviews/index.astro"
+import SgoTestimonial from "@/components/home/sgo-testimonial/index.astro"
+import STIFounderTestimonial from "@/components/home/sti-founder-testimonial/index.astro"
+import TRLSTestimonial from "@/components/home/trls-testimonial/index.astro"
+import UpdateMessaging from "@/components/home/update-messaging/index.astro"
+import ViennaBeefTestimonial from "@/components/home/viennabeef-testimonial/index.astro"
+import WebsiteDesign from "@/components/home/website-design/index.astro"
+
+---
+<section class="selection:bg-om_red selection:text-white">
+    <section class="mac:h-screen mac:max-h-screen 2xl:h-[800px] overflow-hidden">
+        <HeaderBanner ENVIRONMENT={ ENVIRONMENT } />
+        <Header />
+        <Hero data={ home_data.hero } />
+    </section>
+    <section class="flex flex-col md:gap-32 py-12 md:py-32 bg-om_zinc md:mt-6">
+        <RecentProjects
+            CDN={ CDN }
+            data={ home_data.recent_projects }
+            PROJECT={ PROJECT }
+        />
+        <CofounderTalk
+            data={ home_data.cofounder_talk }
+        />
+        <PartnerWithUs
+            CDN={ CDN }
+            data={ home_data.partner_with_us }
+            PROJECT={ PROJECT }
+        />
+        <Reviews
+            CDN={ CDN }
+            data={ home_data.reviews }
+            PROJECT={ PROJECT }
+        />
+        <Awards
+            CDN={ CDN }
+            data={ home_data.awards }
+            PROJECT={ PROJECT }
+        />
+        <STIFounderTestimonial
+            data={ home_data.founder_of_sti }
+        />
+    </section>
+    <MeetOurTeam
+        CDN={ CDN }
+        data={ home_data.meet_our_team }
+        PROJECT={ PROJECT }
+        team={ team }
+    />
+    <ViennaBeefTestimonial
+        CDN={ CDN }
+        data={ testimonials }
+        PROJECT={ PROJECT }
+    />
+    <section class="flex flex-col gap-12 md:gap-32 py-12 md:py-32 bg-om_zinc">
+        <OptimizeWebsite
+            CDN={ CDN }
+            data={ home_data.optimize_website }
+            PROJECT={ PROJECT }
+        />
+        <DataDrivenCompany
+            CDN={ CDN }
+            data_and_analytics={ home_data.data_and_analytics }
+            data={ home_data.data_driven_company }
+            interview_and_investigate={ home_data.interview_and_investigate }
+            keyword_research={ home_data.keyword_research }
+            PROJECT={ PROJECT }
+        />
+        <SgoTestimonial
+            CDN={ CDN }
+            data={ testimonials }
+            PROJECT={ PROJECT }
+        />
+    </section>
+    <UpdateMessaging
+        CDN={ CDN }
+        data={ home_data.update_messaging }
+        PROJECT={ PROJECT }
+    />
+    <EditAnyPage
+        CDN={ CDN }
+        data={ home_data.edit_any_page }
+        PROJECT={ PROJECT }
+    />
+    <section class="flex flex-col gap-12 py-12 md:py-32 bg-om_zinc">
+        <WebsiteDesign
+            CDN={ CDN }
+            data={ home_data.website_design }
+            PROJECT={ PROJECT }
+        />
+        <NotSure
+            CDN={ CDN }
+            data={ home_data.not_sure }
+            PROJECT={ PROJECT }
+        />
+        <TRLSTestimonial
+            CDN={ CDN }
+            data={ testimonials }
+            PROJECT={ PROJECT }
+        />
+    </section>
+</section>
+<ReachOutToChris
+    CDN={ CDN }
+    data={ home_data.reach_out_to_chris }
+    PROJECT={ PROJECT }
+/>
+<Footer />

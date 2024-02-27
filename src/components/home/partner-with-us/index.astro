@@ -1,0 +1,54 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO ATOMS
+import CTALink from "@/atoms/cta-link/index.astro"
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+import Link from "@/atoms/links/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+
+// IMPORTS MARKED
+import { marked } from "marked"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+
+const html = marked.parse( data.description )
+
+---
+<section class="pt-12 md:pt-0">
+    <Container>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-20">
+            <div class="md:col-span-3 flex items-center">
+                <div class="w-full aspect-square md:aspect-auto md:h-[640px] bg-zinc-200">
+                    <Picture
+                        alternative_text={ data.title }
+                        CDN={ CDN }
+                        image_width="1400"
+                        PROJECT={ PROJECT }
+                        source={ data.cover }
+                    />
+                </div>
+            </div>
+            <div class="flex flex-col justify-center gap-6 col-span-2">
+                <HeadingTwo>{ data.title }</HeadingTwo>
+                <div class="space-y-1">
+                    <div class="h-[2px] w-14 bg-om_red"></div>
+                    <div class="h-[2px] w-14 bg-om_red"></div>
+                </div>
+                <section set:html={ html } class="markdown" />
+                <Link href={ data.button_link } aria-label={ data.button_text }>
+                    <CTALink>{ data.button_text }</CTALink>
+                </Link>
+            </div>
+        </div>
+    </Container>
+</section>

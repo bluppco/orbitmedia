@@ -1,0 +1,21 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import TextVideoGrid from "@/components/home/cofounder-talk/text-video-grid/index.astro"
+
+// GET ASTRO PROPS
+const { data } = Astro.props
+
+---
+<Container>
+    <TextVideoGrid
+        description={ data.description }
+        heading={ data.heading }
+        source={ data.video_link }
+        title={ data.title }
+        video_text={ data.video_text }
+    />
+</Container>

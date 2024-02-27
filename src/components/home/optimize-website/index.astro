@@ -1,0 +1,29 @@
+---
+
+// IMPORTS ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORTS ASTRO COMPONENTS
+import TextImageGrid from "@/components/common/text-image-grid/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    CDN,
+    data,
+    PROJECT
+
+} = Astro.props
+
+---
+<Container>
+    <TextImageGrid
+        alternative_text={ data.heading }
+        CDN={ CDN }
+        description={ data.description }
+        PROJECT={ PROJECT }
+        source={ data.cover }
+        sub_title={ data.title }
+        title={ data.heading }
+    />
+</Container>
