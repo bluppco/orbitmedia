@@ -45,7 +45,12 @@ module.exports = {
 			"om_carbon_black": "#1a1a1a",
 			"om_black": "#0d0d0d"
 
-		}
+		},
+    screens: {
+
+      "mac": "1440px"
+
+    }
     },
   },
   plugins: [require("tailwindcss-animate")],
