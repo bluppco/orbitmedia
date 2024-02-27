@@ -5,6 +5,7 @@ import Container from "@/layouts/container/index.astro"
 
 // IMPORTS ASTRO ATOMS
 import HeadingWhite from "@/atoms/headings/two/white/index.astro"
+import Link from "@/atoms/links/index.astro"
 import ParagraphLargeWhite from "@/atoms/paragraph/large/white/index.astro"
 import Picture from "@/atoms/picture/index.astro"
 import SecondaryButton from "@/atoms/buttons/secondary/index.astro"
@@ -38,7 +39,9 @@ const {
                         />
                     </div>
                     <div class="ml-[72px] md:ml-0 w-full mt-2 md:mt-1">
-                        <SecondaryButton>{ data.button_text }</SecondaryButton>
+                        <Link href={ data.button_link } aria_label={ data.button_text }>
+                            <SecondaryButton>{ data.button_text }</SecondaryButton>
+                        </Link>
                     </div>
                 </div>
             </section>
