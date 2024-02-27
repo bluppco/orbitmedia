@@ -32,22 +32,15 @@ const html = marked.parse( description )
         <section set:html={ html } class="markdown largetext" />
     </div>
     <div class="md:col-span-3 space-y-2 flex flex-col justify-self-end">
-        <div class="hidden md:block w-full overflow-hidden rounded">
+        <!-- <div class="w-full h-80 md:w-full md:h-full overflow-hidden rounded">
             <iframe
+                allow="autoplay; fullscreen; picture-in-picture"
+                height="100%"
                 src={ source }
-                width="720"
-                height="420"
-                allow="autoplay; fullscreen; picture-in-picture">
+                width="100%"
+            >
             </iframe>
-        </div>
-        <div class="md:hidden w-full overflow-hidden rounded">
-            <iframe
-                src={ source }
-                width="320"
-                height="200"
-                allow="autoplay; fullscreen; picture-in-picture">
-            </iframe>
-        </div>
+        </div> -->
         <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>
     </div>
 </div>
