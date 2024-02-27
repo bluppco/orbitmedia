@@ -36,24 +36,15 @@ const html = marked.parse( description )
         }
     </div>
     <div class="md:col-span-3 space-y-2 flex flex-col justify-self-end">
-        <div class="hidden md:block w-full overflow-hidden rounded">
+        <!-- <div class="w-full h-80 md:w-full md:h-full overflow-hidden rounded">
             <iframe
                 allow="autoplay; fullscreen; picture-in-picture"
-                height="420"
+                height="100%"
                 src={ source }
-                width="720"
+                width="100%"
             >
             </iframe>
-        </div>
-        <div class="md:hidden w-full overflow-hidden rounded">
-            <iframe
-                allow="autoplay; fullscreen; picture-in-picture"
-                height="200"
-                src={ source }
-                width="320"
-            >
-            </iframe>
-        </div>
+        </div> -->
         <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>
     </div>
 </div>
