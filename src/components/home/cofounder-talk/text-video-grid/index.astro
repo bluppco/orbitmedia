@@ -31,7 +31,7 @@ const html = marked.parse( description )
         </div>
         <section set:html={ html } class="markdown largetext" />
     </div>
-    <div class="md:col-span-3 space-y-2 flex flex-col justify-self-end">
+    <div class="md:col-span-3 flex flex-col gap-2">
         <div class="h-72 md:h-[400px] w-full overflow-hidden rounded">
             <iframe
                 allow="autoplay; fullscreen; picture-in-picture"
@@ -41,6 +41,8 @@ const html = marked.parse( description )
             >
             </iframe>
         </div>
-        <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>
+        <div class="pl-3">
+            <p class="font-proxima_nova text-lg font-bold">{ video_text }</p>
+        </div>
     </div>
 </div>
