@@ -1,5 +1,6 @@
 ---
 title: About
+slug: about
 order: 5
 has_dropdown: true
 items: [
