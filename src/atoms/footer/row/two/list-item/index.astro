@@ -1,8 +1,5 @@
 ---
 
-// IMPORTS ASTRO ATOMS
-import Link from "@/atoms/links/index.astro"
-
 // GET ASTRO PROPS
 const {
 
@@ -13,7 +10,7 @@ const {
 
 ---
 <li class="text-center md:text-left text-sm list-none md:list-disc text-om_orange hover:text-white font-bold font-proxima_nova transition-all duration-200 cursor-pointer">
-    <Link href={ href } aria_label={ aria_label }>
+    <a href={ href } aria-label={ aria_label }>
         <slot/>
-    </Link>
+    </a>
 </li>

@@ -25,7 +25,7 @@ const { data } = Astro.props
                     <div class="pb-4">
                         <p class="text-white text-xl md:text-2xl font-light font-proxima_nova">{ data.description }</p>
                     </div>
-                    <Link href="" aria_label={ data.button_text }>
+                    <Link href={ data.button_link } aria_label={ data.button_text }>
                         <PrimaryButton>{ data.button_text }</PrimaryButton>
                     </Link>
                 </div>

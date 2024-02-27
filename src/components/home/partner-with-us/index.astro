@@ -6,6 +6,7 @@ import Container from "@/layouts/container/index.astro"
 // IMPORTS ASTRO ATOMS
 import CTALink from "@/atoms/cta-link/index.astro"
 import HeadingTwo from "@/atoms/headings/two/index.astro"
+import Link from "@/atoms/links/index.astro"
 import Picture from "@/atoms/picture/index.astro"
 
 // IMPORTS MARKED
@@ -44,7 +45,9 @@ const html = marked.parse( data.description )
                     <div class="h-[2px] w-14 bg-om_red"></div>
                 </div>
                 <section set:html={ html } class="markdown" />
-                <CTALink>{ data.button_text }</CTALink>
+                <Link href={ data.button_link } aria-label={ data.button_text }>
+                    <CTALink>{ data.button_text }</CTALink>
+                </Link>
             </div>
         </div>
     </Container>
