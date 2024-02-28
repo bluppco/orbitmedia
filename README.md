@@ -26,7 +26,7 @@ Blupp Website: https://orbitmedia.blupp.co
 ### Installation
 
 #### Clone the repository
-git clone https://github.com/bluppco/orbitmedia.com.git
+git clone https://github.com/bluppco/orbitmedia.git
 
 #### Navigate to the project directory
 cd orbitmedia.com
